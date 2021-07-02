@@ -1,7 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
+import * as THREE from "three";
 
 function App() {
+  const scene = new THREE.Scene();
+  console.log(scene);
+  
   return (
     <div className="App">
       <header className="App-header">
