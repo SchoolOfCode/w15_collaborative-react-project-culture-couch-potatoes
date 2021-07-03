@@ -18,7 +18,7 @@ function Exhibit(props) {
       onPointerOver={(e) => setHover(true)}
       onPointerOut={(e) => setHover(false)}
     >
-      <boxGeometry args={[1.2, 2, 0.2]} />
+      <boxGeometry args={[3, 5, 0.2]} />
       <meshStandardMaterial
         opacity={hovered ? 0.9 : 0.6}
         color={hovered ? "red" : "green"}
@@ -26,7 +26,7 @@ function Exhibit(props) {
     </mesh>
     <Text
       
-      position={[props.position[0],props.position[1]-2, props.position[2]]}
+      position={[props.position[0],props.position[1]-3, props.position[2]]}
       color="white"
       fontSize={0.5}
       anchorX="center"

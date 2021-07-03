@@ -12,10 +12,12 @@ function App() {
   return (
     <Canvas>
       <Suspense fallback={null}>
-        <ambientLight intensity={0.8} />
+        <ambientLight intensity={1} />
 
         <Museum position={[0, 0, 0]} />
         <Floor position={[0, -5, 5]} rotation={[-Math.PI/2,0,0]}/>
+        <Floor position={[-10, -5, 5]} rotation={[-Math.PI/2,0,0]}/>
+        <Floor position={[10, -5, 5]} rotation={[-Math.PI/2,0,0]}/>
 
         <Exhibit position={[-12, 1, 0.2]} text={"Exhibit 1"}/>
         <Exhibit position={[-6, 1, 0.2]} text={"Exhibit 2"} />
