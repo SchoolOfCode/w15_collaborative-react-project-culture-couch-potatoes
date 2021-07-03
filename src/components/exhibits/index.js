@@ -24,9 +24,11 @@ function Exhibit(props) {
       </mesh>
 
       <Text
+        rotation = {props.rotation}
         position={[props.position[0],props.position[1]-3, props.position[2]]}
-        color="white"
-        fontSize={0.5}
+        color={"white"}
+        opacity={hovered ? 1 : 0}
+        fontSize={hovered ? 0.3 : 0.2}
         anchorX="center"
         anchorY="middle"
       >

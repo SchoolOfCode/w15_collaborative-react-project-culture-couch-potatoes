@@ -12,7 +12,7 @@ function App() {
   return (
     <Canvas background={"black"}>
       <Suspense fallback={null}>
-        
+
         <ambientLight intensity={0.75} />
 
         <Museum position={[0, 0, 0]} />
@@ -20,11 +20,11 @@ function App() {
         <Floor position={[-10, -5, 5]} rotation={[-Math.PI/2,0,0]}/>
         <Floor position={[10, -5, 5]} rotation={[-Math.PI/2,0,0]}/>
 
-        <Exhibit position={[-12, 1, 0.2]} text={"Exhibit 1"}/>
-        <Exhibit position={[-6, 1, 0.2]} text={"Exhibit 2"} />
-        <Exhibit position={[0, 1, 0.2]} text={"Exhibit 3"}/>
-        <Exhibit position={[6, 1, 0.2]} text={"Exhibit 4"}/>
-        <Exhibit position={[12, 1, 0.2]} text={"Exhibit 5"}/>
+        <Exhibit position={[-15, 0, 5]} rotation={[0,Math.PI/2,0]} text={"Starry Night | 123 AD"}/>
+        <Exhibit position={[-9, 1, 0.2]} text={"Mona Lisa | 300 BC"} />
+        <Exhibit position={[0, 1, 0.2]} text={"Moonlander | 2042 AD"}/>
+        <Exhibit position={[9, 1, 0.2]} text={"Boromir's Sorrow | 903 AD"}/>
+        <Exhibit position={[15, 0, 5]} rotation={[0,-Math.PI/2,0]}  text={"Green Box | Unknown"}/>
 
         <OrbitControls />
         <Stars />
