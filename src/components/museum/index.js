@@ -16,9 +16,9 @@ function Museum() {
 
   return (
     <mesh >
-      <boxGeometry args={[10, 10, 1]}/>
+      <boxGeometry args={[10, 10, 0.1]}/>
       <meshStandardMaterial 
-        displacementScale={0.2}
+        displacementScale={0}
         map={colorMap}
         displacementMap={displacementMap}
         normalMap={normalMap}

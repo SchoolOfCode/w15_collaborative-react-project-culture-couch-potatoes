@@ -4,7 +4,6 @@ function Exhibit(props) {
   const mesh = useRef()
   const [hovered, setHover] = useState(false)
   const [active, setActive] = useState(false)
-
   return (
     <mesh
       {...props}
@@ -13,8 +12,8 @@ function Exhibit(props) {
       onClick={(e) => setActive(!active)}
       onPointerOver={(e) => setHover(true)}
       onPointerOut={(e) => setHover(false)}>
-      <boxGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial opacity={hovered ? 0.8 : 0.9} color={"red"} />
+      <boxGeometry args={[1.2, 2, 0.2]} />
+      <meshStandardMaterial opacity={hovered ? 0.6 : 0.9} color={"red"} />
     </mesh>
   )
 }
