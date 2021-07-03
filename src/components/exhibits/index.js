@@ -1,11 +1,13 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, Fragment } from "react";
 import { Text } from "@react-three/drei";
+
 
 function Exhibit(props) {
   const mesh = useRef();
   const [hovered, setHover] = useState(false);
   const [active, setActive] = useState(false);
   return (
+    <Fragment>
     <mesh
       {...props}
       ref={mesh}
@@ -20,6 +22,17 @@ function Exhibit(props) {
         color={hovered ? "red" : "green"}
       />
     </mesh>
+    <Text
+      position={props.position}
+      color="black"
+      fontSize={1}
+      anchorX="center"
+      anchorY="middle"
+    >
+      {`${props.text}`}
+    </Text>
+    </Fragment>
+
   );
 }
 

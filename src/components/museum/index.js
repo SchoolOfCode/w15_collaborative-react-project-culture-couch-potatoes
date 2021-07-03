@@ -16,13 +16,8 @@ function Museum() {
   return (
     <mesh>
       <boxGeometry args={[30, 10, 0.1]} />
-      <meshStandardMaterial
-      // displacementScale={0}
-      // map={colorMap}
-      // displacementMap={displacementMap}
-      // normalMap={normalMap}
-      // roughnessMap={roughnessMap}
-      // aoMap={aoMap}
+      <meshBasicMaterial color= {"#002a36"}
+     
       />
     </mesh>
   );
