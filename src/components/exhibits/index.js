@@ -2,10 +2,12 @@ import React, { useRef, useState, Fragment } from "react";
 import { Text } from "@react-three/drei";
 
 
+
 function Exhibit(props) {
   const mesh = useRef();
   const [hovered, setHover] = useState(false);
   const [active, setActive] = useState(false);
+  console.log(props.position)
   return (
     <Fragment>
     <mesh
@@ -23,9 +25,10 @@ function Exhibit(props) {
       />
     </mesh>
     <Text
-      position={props.position}
-      color="black"
-      fontSize={1}
+      
+      position={[props.position[0],props.position[1]-2, props.position[2]]}
+      color="white"
+      fontSize={0.5}
       anchorX="center"
       anchorY="middle"
     >

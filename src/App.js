@@ -1,6 +1,7 @@
 import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+// import { OrbitControls } from "@react-three/drei";
+import { FlyControls } from "@react-three/drei";
 import Museum from "./components/museum";
 import Exhibit from "./components/exhibits";
 import Floor from "./components/floor";
@@ -21,7 +22,7 @@ function App() {
         <Exhibit position={[5, 3, 0.2]} text={"Exhibit 4"}/>
         <Exhibit position={[10, 3, 0.2]} text={"Exhibit 5"}/>
 
-        <OrbitControls />
+        <FlyControls />
       </Suspense>
     </Canvas>
   );
