@@ -1,25 +1,32 @@
-import React, { useRef, useState } from 'react'
+import React from 'react'
+import { useTexture } from "@react-three/drei"
+import col from '../../textures/wall/PaintedBricks001_4K_Color.jpg'
+import disp from '../../textures/wall/PaintedBricks001_4K_Displacement.jpg'
+import norm from '../../textures/wall/PaintedBricks001_4K_Normal.jpg'
+import rough from '../../textures/wall/PaintedBricks001_4K_Roughness.jpg'
+import ao from '../../textures/wall/PaintedBricks001_4K_AmbientOcclusion.jpg'
 
-function Museum(props) {
-  // This reference will give us direct access to the mesh
-  const mesh = useRef()
-  // Set up state for the hovered and active state
-  const [hovered, setHover] = useState(false)
-  const [active, setActive] = useState(false)
+// import { useLoader } from '@react-three/fiber'
+// import { TextureLoader } from 'three/src/loaders/TextureLoader'
+
+function Museum() {
+
+  const [colorMap, displacementMap, normalMap, roughnessMap, aoMap] = useTexture([
+    col, disp, norm, rough, ao])
 
   return (
-    <mesh
-      {...props}
-      ref={mesh}
-      scale={active ? 1.2 : 1}
-      onClick={(e) => setActive(!active)}
-      onPointerOver={(e) => setHover(true)}
-      onPointerOut={(e) => setHover(false)}>
-      <boxGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial color={hovered ? 'green' : 'red'} />
+    <mesh >
+      <boxGeometry args={[10, 10, 1]}/>
+      <meshStandardMaterial 
+        displacementScale={0.2}
+        map={colorMap}
+        displacementMap={displacementMap}
+        normalMap={normalMap}
+        roughnessMap={roughnessMap}
+        aoMap={aoMap}
+      />
     </mesh>
   )
 }
-
 
 export default Museum;

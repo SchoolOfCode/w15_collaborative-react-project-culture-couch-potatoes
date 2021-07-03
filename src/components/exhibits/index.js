@@ -2,7 +2,6 @@ import React, { useRef, useState } from 'react'
 
 function Exhibit(props) {
   const mesh = useRef()
-  // Set up state for the hovered and active state
   const [hovered, setHover] = useState(false)
   const [active, setActive] = useState(false)
 
@@ -15,7 +14,7 @@ function Exhibit(props) {
       onPointerOver={(e) => setHover(true)}
       onPointerOut={(e) => setHover(false)}>
       <boxGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial color={hovered ? 'blue' : 'yellow'} />
+      <meshStandardMaterial opacity={hovered ? 0.8 : 0.9} color={"red"} />
     </mesh>
   )
 }
