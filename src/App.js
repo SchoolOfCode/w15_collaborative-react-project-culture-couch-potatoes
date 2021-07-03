@@ -10,9 +10,10 @@ import "./App.css";
 
 function App() {
   return (
-    <Canvas>
+    <Canvas background={"black"}>
       <Suspense fallback={null}>
-        <ambientLight intensity={1} />
+        
+        <ambientLight intensity={0.75} />
 
         <Museum position={[0, 0, 0]} />
         <Floor position={[0, -5, 5]} rotation={[-Math.PI/2,0,0]}/>
