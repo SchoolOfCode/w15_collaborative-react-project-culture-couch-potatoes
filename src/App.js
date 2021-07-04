@@ -12,14 +12,17 @@ import godzilla from "./objects/van_gough.jpg"
 import squid from "./objects/squid.png"
 
 import "./App.css";
+import Overlay from "./components/exhibits/overlay";
 
 function App() {
   return (
-    <Canvas fov={90}>
+    <>
+    
+    <Canvas camera= {{position:[0,0,15],fov:90}}>
       <Suspense fallback={null}>
 
         <ambientLight intensity={0.9} />
-
+        <Overlay></Overlay>
         <Museum position={[0, 0, 0]} />
         <Floor position={[0, -5, 5]} rotation={[-Math.PI/2,0,0]}/>
         <Floor position={[-10, -5, 5]} rotation={[-Math.PI/2,0,0]}/>
@@ -60,6 +63,8 @@ function App() {
 
       </Suspense>
     </Canvas>
+    
+    </>
   );
 }
 

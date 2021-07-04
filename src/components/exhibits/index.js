@@ -1,6 +1,8 @@
 import React, { useRef, useState, Fragment } from "react";
 import { Text } from "@react-three/drei";
 import { useTexture } from "@react-three/drei";
+
+
 // import mona from "../../objects/mona.jpg"
 
 function Exhibit(props) {
@@ -37,6 +39,7 @@ function Exhibit(props) {
       >
         {`${props.text}`}
       </Text>
+      
     </Fragment>
 
   );
