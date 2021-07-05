@@ -52,8 +52,8 @@ function App() {
       >
       <Suspense fallback={null}>
 
-        <ambientLight intensity={0.6} />
-        
+        <ambientLight intensity={0.8} />
+
         <Museum position={MUS_POSITION} width={MUS_WIDTH} height={MUS_HEIGHT} floorSize={FLOOR_SIZE}/>
         <Floor position={MUS_POSITION} width={MUS_WIDTH} height={MUS_HEIGHT} floorSize={FLOOR_SIZE}/>
   

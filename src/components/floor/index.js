@@ -21,7 +21,7 @@ function Floor({position,width,height,floorSize}) {
 
   for (let i = -width/2; i <= width/2; i+=floorSize){
     floorItems.push(
-      <mesh position={[i,-position[1]-(height/2),position[2]+(floorSize/2)]} rotation = {[-Math.PI/2,0,0]} >
+      <mesh key={`floor_${i}`} position={[i,-position[1]-(height/2),position[2]+(floorSize/2)]} rotation = {[-Math.PI/2,0,0]} >
       <planeBufferGeometry attach="geometry" args={[floorSize,floorSize]} />
       <meshStandardMaterial attach="material" 
       map={colorMap}
