@@ -20,6 +20,16 @@ function Museum({position,width,height,floorSize}) {
         <planeBufferGeometry attach="geometry" args={[floorSize,height]} />
         <meshLambertMaterial attach="material" color= {"#002a36"} side={DoubleSide}/>
       </mesh>
+     {/* FRONT WALL */}
+     <mesh position={[position[0], position[1], floorSize]}>
+        <planeBufferGeometry attach="geometry" args={[width+floorSize,height]} />
+        <meshLambertMaterial attach="material" color= {"#002a36"} side={DoubleSide}/>
+      </mesh>
+      {/* ROOF */}
+     <mesh position={[position[0], height/2, floorSize/2]} rotation={[-Math.PI/2,0,0]}>
+        <planeBufferGeometry attach="geometry" args={[width+floorSize,floorSize]} />
+        <meshLambertMaterial attach="material" color= {"#000012"} side={DoubleSide}/>
+      </mesh>
     </>
   );
 }

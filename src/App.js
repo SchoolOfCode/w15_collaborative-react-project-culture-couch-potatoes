@@ -18,10 +18,10 @@ const MUS_POSITION = [0,0,0]
 const FLOOR_SIZE = 10;
 const EXHIBITS = [mona, boromir, godzilla, squid]
 const EXHIBIT_PROPS = [
-  [mona,{size:[3.5,5],text:"Mona Lisa | 300 BC"}],
-  [boromir,{size:[8,5],text:"Boromir's Warning | 903 AD"}],
-  [godzilla,{size:[7,5],text:"Starry Night | 123 AD"}],
-  [squid,{size:[5,5],text:"S. Ward | Unknown"}]
+  [mona,    {id:1,  size:[3.5,5], text:"Mona Lisa | 300 BC"}],
+  [boromir, {id:2,  size:[8,5],   text:"Boromir's Warning | 903 AD"}],
+  [godzilla,{id:3,  size:[7,5],   text:"Starry Night | 123 AD"}],
+  [squid,   {id:4,  size:[5,5],   text:"S. Ward | Unknown"}]
 ];
 
 function App() {
@@ -30,6 +30,7 @@ function App() {
   for (let i = 0, j = -MUS_WIDTH/2; i < EXHIBITS.length; i++, j+= (MUS_WIDTH/(EXHIBITS.length-1))){
     exhibitItems.push(
       <Exhibit 
+          key={EXHIBIT_PROPS[i][1].id}
           position={[j, 1, 0.1]} 
           rotation={[0,0,0]} 
           size={EXHIBIT_PROPS[i][1].size} 
@@ -74,7 +75,7 @@ function App() {
         >
         </OrbitControls>
 
-        <Stars />
+        {/* <Stars /> */}
 
       </Suspense>
     </Canvas>
