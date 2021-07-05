@@ -1,23 +1,26 @@
-import React, { Fragment } from "react";
+import React from "react";
+import { DoubleSide } from "three";
 
-
-function Museum(props) {
+function Museum({position,width,height,floorSize}) {
 
   return (
-    <Fragment>
-    <mesh {...props}>
-      <planeBufferGeometry attach="geometry" args={[30,10]} />
-      <meshLambertMaterial attach="material" color= {"#002a36"} />
-    </mesh>
-    <mesh position={[-15, 0, 5]} rotation={[0,Math.PI/2,0]}>
-      <planeBufferGeometry attach="geometry" args={[10,10]} />
-      <meshLambertMaterial attach="material" color= {"#002a36"} />
-    </mesh>
-    <mesh position={[15, 0, 5]} rotation={[0,-Math.PI/2,0]}>
-      <planeBufferGeometry attach="geometry" args={[10,10]} />
-      <meshLambertMaterial attach="material" color= {"#002a36"} />
-    </mesh>
-    </Fragment>
+    <>
+    {/* BACK WALL */}
+      <mesh position={position}>
+        <planeBufferGeometry attach="geometry" args={[width,height]} />
+        <meshLambertMaterial attach="material" color= {"#002a36"} side={DoubleSide}/>
+      </mesh>
+    {/* LEFT WALL */}
+      <mesh position={[-width/2, 0, floorSize/2]} rotation={[0,Math.PI/2,0]}>
+        <planeBufferGeometry attach="geometry" args={[floorSize,height]} />
+        <meshLambertMaterial attach="material" color= {"#002a36"} side={DoubleSide}/>
+      </mesh>
+    {/* RIGHT WALL */}
+      <mesh position={[width/2, 0, floorSize/2]} rotation={[0,-Math.PI/2,0]}>
+        <planeBufferGeometry attach="geometry" args={[floorSize,height]} />
+        <meshLambertMaterial attach="material" color= {"#002a36"} side={DoubleSide}/>
+      </mesh>
+    </>
   );
 }
 

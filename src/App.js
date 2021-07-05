@@ -12,24 +12,28 @@ import godzilla from "./objects/van_gough.jpg"
 import squid from "./objects/squid.png"
 
 import "./App.css";
-import Overlay from "./components/exhibits/overlay";
+
+const MUS_WIDTH = 50;
+const MUS_HEIGHT = 10;
+const MUS_POSITION = [0,0,0]
+const FLOOR_SIZE = 10;
+const TOTAL_EXHIB = 4;
 
 function App() {
   return (
     <>
     
-    <Canvas camera= {{position:[0,0,15],fov:90}}>
+    <Canvas camera= {{position:[0,0,15],fov:75}}>
       <Suspense fallback={null}>
 
         <ambientLight intensity={0.9} />
-        <Overlay></Overlay>
-        <Museum position={[0, 0, 0]} />
-        <Floor position={[0, -5, 5]} rotation={[-Math.PI/2,0,0]}/>
-        <Floor position={[-10, -5, 5]} rotation={[-Math.PI/2,0,0]}/>
-        <Floor position={[10, -5, 5]} rotation={[-Math.PI/2,0,0]}/>
+
+        <Museum position={MUS_POSITION} width={MUS_WIDTH} height={MUS_HEIGHT} floorSize={FLOOR_SIZE}/>
+        <Floor position={MUS_POSITION} width={MUS_WIDTH} height={MUS_HEIGHT} floorSize={FLOOR_SIZE}/>
+
 
         <Exhibit 
-        position={[-14.9, 0, 5]} 
+        position={[-MUS_WIDTH/2 + 0.1, 0, FLOOR_SIZE/2]} 
         rotation={[0,Math.PI/2,0]} 
         size={[5,5]} 
         text={"Starry Night | 123 AD"}
@@ -37,21 +41,21 @@ function App() {
         />
 
         <Exhibit 
-        position={[-6, 1, 0.2]} 
+        position={[-12, 1, 0.2]} 
         size={[3.5,5]} 
         text={"Mona Lisa | 300 BC"}
         image={mona}
         />
 
         <Exhibit 
-        position={[6, 1, 0.2]}
-        size={[7,5]} 
+        position={[12, 1, 0.2]}
+        size={[9,5]} 
         text={"Boromir's Sorrow | 903 AD"}
         image={boromir}
         />
 
         <Exhibit 
-        position={[14.9, 0, 5]} 
+        position={[MUS_WIDTH/2 - 0.1, 0, FLOOR_SIZE/2]} 
         rotation={[0,-Math.PI/2,0]}
         size={[4,4]} 
         text={"S. Ward | Unknown"}
