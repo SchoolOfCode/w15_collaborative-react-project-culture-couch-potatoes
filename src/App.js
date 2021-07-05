@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
-import { Canvas } from "@react-three/fiber";
- import { PointerLockControls, Stars, FlyControls, OrbitControls } from "@react-three/drei";
+import { Canvas, extend } from "@react-three/fiber";
+import { PointerLockControls, Stars, FlyControls, OrbitControls } from "@react-three/drei";
 import Museum from "./components/museum";
 import Exhibit from "./components/exhibits";
 import Floor from "./components/floor";
@@ -57,13 +57,23 @@ function App() {
   
         {exhibitItems}
 
+        {/* <PointerLockControls /> */}
         {/* <FlyControls 
           movementSpeed={10}
           rollSpeed={0.8}
           dragToLook={true}
         /> */}
-        <OrbitControls />
-        {/* <PointerLockControls /> */}
+        <OrbitControls 
+          minDistance={5}
+          maxDistance={10}
+          minAzimuthAngle ={-Math.PI/2.1}
+          maxAzimuthAngle={Math.PI/2.1}
+          minPolarAngle={1}
+          maxPolarAngle={Math.PI/1.5}
+          keyPanSpeed={10}
+        >
+        </OrbitControls>
+
         <Stars />
 
       </Suspense>
