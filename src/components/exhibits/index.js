@@ -50,8 +50,8 @@ function Overlay(props){
   return(
       <>
         <Text
-          fontSize= {1}
-          position={[0,0,10.5]}
+          fontSize= {0.5}
+          position={[0,0,4.1]}
           // anchorX="left"
           // anchorY="middle"
           >
@@ -65,10 +65,10 @@ function Overlay(props){
           />
         </Text>
     
-      <mesh position={[0,0,10.4]} >
+      <mesh position={[0,0,4]} >
           <planeBufferGeometry 
             attach="geometry" 
-            args={[60,50]} />
+            args={[50,15]} />
           <meshStandardMaterial 
             attach="material"   
             color="black" 

@@ -19,7 +19,7 @@ const FLOOR_SIZE = 10;
 const EXHIBITS = [mona, boromir, godzilla, squid]
 const EXHIBIT_PROPS = [
   [mona,{size:[3.5,5],text:"Mona Lisa | 300 BC"}],
-  [boromir,{size:[8,5],text:"Boromir's Sorrow | 903 AD"}],
+  [boromir,{size:[8,5],text:"Boromir's Warning | 903 AD"}],
   [godzilla,{size:[7,5],text:"Starry Night | 123 AD"}],
   [squid,{size:[5,5],text:"S. Ward | Unknown"}]
 ];
