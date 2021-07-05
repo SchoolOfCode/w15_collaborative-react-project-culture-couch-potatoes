@@ -1,13 +1,14 @@
-import React, { useRef, useState } from "react";
-import { Text } from "@react-three/drei";
-import { useTexture } from "@react-three/drei";
-import { DoubleSide } from 'three'
+import React, { useRef, useState, useMemo } from "react";
+import { Text, useTexture } from "@react-three/drei";
+import { DoubleSide, SpotLight} from 'three'
 
 function Exhibit(props) {
   const mesh = useRef();
   const [hovered, setHover] = useState(false);
   const [active, setActive] = useState(false);
   const imgTexture = useTexture(props.image);
+  const spot = useMemo(() => new SpotLight(0xffffff), [])
+
   return (
     <>
       <Overlay active={active}/>
@@ -27,7 +28,13 @@ function Exhibit(props) {
           side={DoubleSide}
         />
       </mesh>
-
+      <primitive object={spot} 
+        position={[props.position[0],5, props.museumParams[2]]} 
+        intensity={0.8}
+        penumbra={0.3}
+        angle={0.6}
+        />
+      <primitive object={spot.target} position={[props.position[0],0, 0]} />
       <Text
         rotation = {props.rotation}
         position={[props.position[0],props.position[1]-3, props.position[2]]}

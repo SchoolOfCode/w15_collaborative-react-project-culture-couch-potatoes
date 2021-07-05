@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import { Canvas, extend } from "@react-three/fiber";
-import { PointerLockControls, Stars, FlyControls, OrbitControls } from "@react-three/drei";
+import { PointerLockControls, Stars, FlyControls, OrbitControls, SpotLight } from "@react-three/drei";
 import Museum from "./components/museum";
 import Exhibit from "./components/exhibits";
 import Floor from "./components/floor";
@@ -36,6 +36,7 @@ function App() {
           size={EXHIBIT_PROPS[i][1].size} 
           text={EXHIBIT_PROPS[i][1].text}
           image={EXHIBIT_PROPS[i][0]}
+          museumParams={[MUS_WIDTH,MUS_HEIGHT,FLOOR_SIZE]}
       />
     );
   }
@@ -51,8 +52,7 @@ function App() {
       >
       <Suspense fallback={null}>
 
-        <ambientLight intensity={0.9} />
-
+        <ambientLight intensity={0.6} />
         <Museum position={MUS_POSITION} width={MUS_WIDTH} height={MUS_HEIGHT} floorSize={FLOOR_SIZE}/>
         <Floor position={MUS_POSITION} width={MUS_WIDTH} height={MUS_HEIGHT} floorSize={FLOOR_SIZE}/>
   
