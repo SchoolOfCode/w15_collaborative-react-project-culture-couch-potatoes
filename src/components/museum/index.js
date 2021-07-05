@@ -25,10 +25,11 @@ function Museum({position,width,height,floorSize}) {
         <mesh key = {`wall_${i}`} position={[i,0,0]}>
         <planeBufferGeometry attach="geometry" args={[floorSize,height]} />
         <meshStandardMaterial attach="material" side={DoubleSide}
+          displacementScale={0}
           map={colorMap}
-          displacement={displacementMap}
+          displacementMap={displacementMap}
           normalMap = {normalMap}
-          roughness = {roughnessMap}
+          roughnessMap = {roughnessMap}
           aoMap = {aoMap}
           />
       </mesh>
@@ -37,10 +38,11 @@ function Museum({position,width,height,floorSize}) {
         <mesh key = {`wall_${i}`} position={[i,0,floorSize]}>
         <planeBufferGeometry attach="geometry" args={[floorSize,height]} />
         <meshStandardMaterial attach="material" side={DoubleSide}
+          displacementScale={0}
           map={colorMap}
-          displacement={displacementMap}
+          displacementMap={displacementMap}
           normalMap = {normalMap}
-          roughness = {roughnessMap}
+          roughnessMap = {roughnessMap}
           aoMap = {aoMap}
           />
       </mesh>
@@ -55,10 +57,11 @@ function Museum({position,width,height,floorSize}) {
       <mesh position={[-(width+floorSize)/2, 0, floorSize/2]} rotation={[0,Math.PI/2,0]}>
         <planeBufferGeometry attach="geometry" args={[floorSize,height]} />
         <meshStandardMaterial attach="material" side={DoubleSide}
+          displacementScale={0}
           map={colorMap}
-          displacement={displacementMap}
+          displacementMap={displacementMap}
           normalMap = {normalMap}
-          roughness = {roughnessMap}
+          roughnessMap = {roughnessMap}
           aoMap = {aoMap}
           />
       </mesh>
@@ -66,10 +69,11 @@ function Museum({position,width,height,floorSize}) {
       <mesh position={[(width+floorSize)/2, 0, floorSize/2]} rotation={[0,-Math.PI/2,0]}>
         <planeBufferGeometry attach="geometry" args={[floorSize,height]} />
         <meshStandardMaterial attach="material" side={DoubleSide}
+          displacementScale={0}
           map={colorMap}
-          displacement={displacementMap}
+          displacementMap={displacementMap}
           normalMap = {normalMap}
-          roughness = {roughnessMap}
+          roughnessMap = {roughnessMap}
           aoMap = {aoMap}
           />
         />

@@ -1,6 +1,6 @@
-import React, { Suspense } from "react";
-import { Canvas, extend } from "@react-three/fiber";
-import { PointerLockControls, Stars, FlyControls, OrbitControls, SpotLight } from "@react-three/drei";
+import React, { Suspense, useRef, useEffect } from "react";
+import { Canvas, useFrame,useThree } from "@react-three/fiber";
+import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import Museum from "./components/museum";
 import Exhibit from "./components/exhibits";
 import Floor from "./components/floor";
@@ -24,8 +24,7 @@ const EXHIBIT_PROPS = [
   [squid,   {id:4,  size:[5,5],   text:"S. Ward | Unknown"}]
 ];
 
-function App() {
-
+const setupExhibitItems = () =>{
   const exhibitItems = []
   for (let i = 0, j = -MUS_WIDTH/2; i < EXHIBITS.length; i++, j+= (MUS_WIDTH/(EXHIBITS.length-1))){
     exhibitItems.push(
@@ -40,16 +39,25 @@ function App() {
       />
     );
   }
+  return exhibitItems;
+}
+
+const Camera = ({position=[MUS_POSITION[0],MUS_POSITION[1],FLOOR_SIZE+5], fov=75}) =>{
+  return <PerspectiveCamera makeDefault position={position} fov={fov}/>
+}
+
+function App() {
+
+  const exhibitItems = setupExhibitItems();
 
   return (
     <>
-    
     <Canvas 
       style={{height:"100vh", width:"100vw"}}
       dpr={Math.max(window.devicePixelRatio, 2)} 
-      resize={{scroll: false}} 
-      camera={{position:[MUS_POSITION[0],MUS_POSITION[1],FLOOR_SIZE+5],fov:75}}
+      resize={{scroll: false}}
       >
+      <Camera />
       <Suspense fallback={null}>
 
         <ambientLight intensity={0.8} />
@@ -59,12 +67,6 @@ function App() {
   
         {exhibitItems}
 
-        {/* <PointerLockControls /> */}
-        {/* <FlyControls 
-          movementSpeed={10}
-          rollSpeed={0.8}
-          dragToLook={true}
-        /> */}
         <OrbitControls 
           minDistance={5}
           maxDistance={10}
@@ -75,8 +77,6 @@ function App() {
           keyPanSpeed={10}
         >
         </OrbitControls>
-
-        {/* <Stars /> */}
 
       </Suspense>
     </Canvas>

@@ -24,11 +24,12 @@ function Floor({position,width,height,floorSize}) {
       <mesh key={`floor_${i}`} position={[i,-position[1]-(height/2),position[2]+(floorSize/2)]} rotation = {[-Math.PI/2,0,0]} >
       <planeBufferGeometry attach="geometry" args={[floorSize,floorSize]} />
       <meshStandardMaterial attach="material" 
-      map={colorMap}
-      displacement={displacementMap}
-      normalMap = {normalMap}
-      roughness = {roughnessMap}
-      aoMap = {aoMap}
+        map={colorMap}
+        displacementScale={0}
+        displacementMap={displacementMap}
+        normalMap = {normalMap}
+        roughnessMap = {roughnessMap}
+        aoMap = {aoMap}
       side={DoubleSide}
       />
     </mesh>
