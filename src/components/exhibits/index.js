@@ -1,6 +1,9 @@
 import React, { useRef, useState, useMemo } from "react";
 import { Text, useTexture, Html } from "@react-three/drei";
 import { DoubleSide, SpotLight} from 'three'
+import "./overlay.css"
+
+const helperText = "Welcome to the virtual history and science museum. An interactive virtual tour that captures some of the most fascinating moments inhistory. To explore the museum use your mouse left to right. Click on exhibits of interest to find out some historic facts. We hope you enjoythe museum!."
 
 function Exhibit(props) {
   const mesh = useRef();
@@ -11,7 +14,7 @@ function Exhibit(props) {
 
   return (
     <>
-      <Overlay active={active}/>
+      <Overlay active={active} text={helperText}/>
       <mesh
         {...props}
         ref={mesh}
@@ -52,39 +55,13 @@ function Exhibit(props) {
   );
 }
 
-function Overlay({active}){
+function Overlay({active, text}){
 
   return(
-      <>
-        <Text
-          fontSize= {0.5}
-          position={[0,0,2.1]}
-          // anchorX="left"
-          // anchorY="middle"
-          >
-          {"This is an information overlay"}
-          <meshBasicMaterial
-            attach="material"
-            side={DoubleSide}
-            color={"white"}
-            transparent
-            opacity= {active?1:0}
-          />
-        </Text>
-    
-      <mesh position={[0,0,2]} >
-          <planeBufferGeometry 
-            attach="geometry" 
-            args={[50,15]} />
-          <meshStandardMaterial 
-            attach="material"   
-            color="black" 
-            opacity= {active?0.6:0} 
-            transparent= {true}
-            side={DoubleSide}
-          />
-      </mesh>
-    </>
+        <Html className={active? null: "hidden"} as='div' center style={{color:"white", backgroundColor: "black", width:"100vw",height: "100vh"}} opacity= {active?0.6:0} occlude="true">
+          <p>{text}</p>
+        </Html>
+
   )
 }
   
