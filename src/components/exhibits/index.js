@@ -1,5 +1,5 @@
 import React, { useRef, useState, useMemo } from "react";
-import { Text, useTexture } from "@react-three/drei";
+import { Text, useTexture, Html } from "@react-three/drei";
 import { DoubleSide, SpotLight} from 'three'
 
 function Exhibit(props) {

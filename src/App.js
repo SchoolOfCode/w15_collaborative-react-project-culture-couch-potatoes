@@ -53,7 +53,7 @@ function App() {
   return (
     <>
     <Canvas 
-      style={{height:"100vh", width:"100vw"}}
+      style={{height:"100vh", width:"100vw", zIndex:"1", position:"absolute"}}
       dpr={Math.max(window.devicePixelRatio, 2)} 
       resize={{scroll: false}}
       >

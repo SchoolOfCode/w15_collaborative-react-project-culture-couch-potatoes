@@ -3,10 +3,19 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
+import Overlay from "./components/overlay"
+
+const root = document.querySelector("#root")
+const overlayElem = document.querySelector("#overlay")
+
+ReactDOM.render(
+  <Overlay />,
+  overlayElem
+)
 
 ReactDOM.render(
   <App />,
-  document.getElementById("root")
+  root
 );
 
 // If you want to start measuring performance in your app, pass a function
