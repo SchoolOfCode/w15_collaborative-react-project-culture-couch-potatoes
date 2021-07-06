@@ -52,34 +52,34 @@ function Exhibit(props) {
   );
 }
 
-function Overlay(props){
+function Overlay({active}){
 
   return(
       <>
         <Text
           fontSize= {0.5}
-          position={[0,0,4.1]}
+          position={[0,0,2.1]}
           // anchorX="left"
           // anchorY="middle"
           >
-          {"This is an overlay"}
+          {"This is an information overlay"}
           <meshBasicMaterial
             attach="material"
             side={DoubleSide}
             color={"white"}
             transparent
-            opacity= {props.active?1:0}
+            opacity= {active?1:0}
           />
         </Text>
     
-      <mesh position={[0,0,4]} >
+      <mesh position={[0,0,2]} >
           <planeBufferGeometry 
             attach="geometry" 
             args={[50,15]} />
           <meshStandardMaterial 
             attach="material"   
             color="black" 
-            opacity= {props.active?0.6:0} 
+            opacity= {active?0.6:0} 
             transparent= {true}
             side={DoubleSide}
           />

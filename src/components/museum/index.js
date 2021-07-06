@@ -52,7 +52,7 @@ function Museum({position,width,height,floorSize}) {
   return (
     <>
     {/* BACK WALL */}
-     {backWall}
+    {backWall}
     {/* LEFT WALL */}
       <mesh position={[-(width+floorSize)/2, 0, floorSize/2]} rotation={[0,Math.PI/2,0]}>
         <planeBufferGeometry attach="geometry" args={[floorSize,height]} />
@@ -69,14 +69,9 @@ function Museum({position,width,height,floorSize}) {
       <mesh position={[(width+floorSize)/2, 0, floorSize/2]} rotation={[0,-Math.PI/2,0]}>
         <planeBufferGeometry attach="geometry" args={[floorSize,height]} />
         <meshStandardMaterial attach="material" side={DoubleSide}
-          displacementScale={0}
-          map={colorMap}
-          displacementMap={displacementMap}
-          normalMap = {normalMap}
-          roughnessMap = {roughnessMap}
-          aoMap = {aoMap}
+          displacementScale={0} map={colorMap} displacementMap={displacementMap}
+          normalMap = {normalMap} roughnessMap = {roughnessMap} aoMap = {aoMap}
           />
-        />
       </mesh>
      {/* FRONT WALL */}
       {frontWall}
