@@ -1,5 +1,5 @@
-import React, { Suspense, useRef, useEffect } from "react";
-import { Canvas, useFrame,useThree } from "@react-three/fiber";
+import React, { Suspense, useRef } from "react";
+import { Canvas} from "@react-three/fiber";
 import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import Museum from "./components/museum";
 import Exhibit from "./components/exhibits";
@@ -43,6 +43,7 @@ const setupExhibitItems = () =>{
 }
 
 const Camera = ({position=[MUS_POSITION[0],MUS_POSITION[1],FLOOR_SIZE+5], fov=75}) =>{
+  // const cam = useRef()
   return <PerspectiveCamera makeDefault position={position} fov={fov}/>
 }
 
@@ -58,9 +59,10 @@ function App() {
       resize={{scroll: false}}
       >
       <Camera />
+      {console.log(Camera.position)}
       <Suspense fallback={null}>
 
-        <ambientLight intensity={0.8} />
+        <ambientLight intensity={0.6} />
 
         <Museum position={MUS_POSITION} width={MUS_WIDTH} height={MUS_HEIGHT} floorSize={FLOOR_SIZE}/>
         <Floor position={MUS_POSITION} width={MUS_WIDTH} height={MUS_HEIGHT} floorSize={FLOOR_SIZE}/>
@@ -69,7 +71,7 @@ function App() {
 
         <OrbitControls 
           minDistance={5}
-          maxDistance={10}
+          maxDistance={FLOOR_SIZE-1}
           minAzimuthAngle ={-Math.PI/2.1}
           maxAzimuthAngle={Math.PI/2.1}
           minPolarAngle={1}
