@@ -32,16 +32,27 @@ function Exhibit(props) {
         />
       </mesh>
       <Html 
-        position = {[props.position[0], 1, 1]}
+        position = {[props.position[0]-props.size[0], 1, 1]}
         as='div'
         className="description"
         style={{
+          display: "flex",
+          flexDirection: "row",
           color: "white",
           backgroundColor: "rgba(0,0,0,0.4)",
           transition: 'all 0.5s',
           opacity: active ? 1 : 0,
+          pointerEvents: "none"
         }}>
+          <img 
+            src={props.image} 
+            alt={props.text}
+            style={{maxWidth: "30vw"}}
+            />
+          <h2>{props.text}</h2>
           <p> {props.description}</p>
+
+
         </Html>
       <primitive object={spot} 
         position={[props.position[0],5, props.museumParams[2]]} 
