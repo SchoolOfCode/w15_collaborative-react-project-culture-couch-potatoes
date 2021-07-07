@@ -1,6 +1,6 @@
 import React, { Suspense, useState } from "react";
 import { Canvas} from "@react-three/fiber";
-import { OrbitControls, Loader, useProgress, Html} from "@react-three/drei";
+import { OrbitControls, Loader, useProgress, Html, Stars} from "@react-three/drei";
 
 import Museum from "./components/museum";
 import Exhibit from "./components/exhibits";
@@ -113,6 +113,7 @@ function App() {
             </OrbitControls>
 
         </Suspense>
+        <Stars />
     </Canvas>
     <Loader />
     </>

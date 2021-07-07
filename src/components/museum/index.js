@@ -73,7 +73,7 @@ function Museum({position,width,height,floorSize}) {
       {/* ROOF */}
       <mesh position={[position[0], height/2, floorSize/2]} rotation={[-Math.PI/2,0,0]}>
         <planeBufferGeometry attach="geometry" args={[width+floorSize,floorSize]} />
-        <meshStandardMaterial attach="material" side={DoubleSide} />
+        <meshStandardMaterial attach="material" side={DoubleSide} transparent opacity={0.5} />
       </mesh>
     </>
   );
