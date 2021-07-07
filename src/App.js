@@ -1,4 +1,4 @@
-import React, { Suspense} from "react";
+import React, { Suspense, useState } from "react";
 import { Canvas} from "@react-three/fiber";
 import { OrbitControls, Loader, useProgress, Html} from "@react-three/drei";
 
@@ -6,6 +6,7 @@ import Museum from "./components/museum";
 import Exhibit from "./components/exhibits";
 import Floor from "./components/floor";
 
+import logo from "./logo_temp.png"
 import artworks from "./artworks";
 
 import "./App.css";
@@ -14,8 +15,6 @@ const MUS_WIDTH = 50;
 const MUS_HEIGHT = 12;
 const MUS_POSITION = [0,0,0]
 const FLOOR_SIZE = 10;
-const helperText = "Welcome to the virtual history and science museum. An interactive virtual tour that captures some of the most fascinating moments inhistory. To explore the museum use your mouse left to right. Click on exhibits of interest to find out some historic facts. We hope you enjoythe museum!."
-
 
 const setupExhibitItems = () =>{
   const exhibitItems = []
@@ -39,16 +38,55 @@ const setupExhibitItems = () =>{
 
 
 function CustomLoader() {
-
   const { progress } = useProgress()
   return (
     <Html center>
       <span style={{ color: 'white' }}>{progress} % loaded</span>
     </Html>
-
   )
-
 }
+
+function Welcome(){
+  const [visible, setVisible] = useState(true);
+
+  return (
+    <Html 
+    center
+    as='div'
+    className="welcome"
+    style = {{
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      color: "white",
+      backgroundColor: "rgba(0,0,0,0.9)",
+      width: "90vw",
+      height: "80vh",
+      opacity: visible? 1 : 0,
+      pointerEvents: "None"
+    }}>
+      <section style={{display: "flex", flexFlow: "row", alignItems: "center"}}>
+      <figure>
+          <img src={logo} alt="logo" style={{maxWidth: "5vw"}}/>
+          <figcaption style={{textAlign:"left"}}>
+            Virtual Museum of Memes
+          </figcaption>
+        </figure>
+        <h2>Welcome to the Museum of Memes!</h2>
+        <button 
+          style={{pointerEvents: "auto", alignSelf:"end"}} 
+          onClick={(e) => setVisible(!visible)}>
+          Exit
+        </button>
+      </section>
+      <p style={{ color: 'white' }}>
+       Presenting an interactive virtual tour that captures some of the most fascinating moments in history.</p>
+       <p>To explore the museum use your mouse wheel or scroll to zoom in and out, right-click and drag to move around, and left-click and drag to look around. 
+        Click on exhibits of interest to find out some historic facts. We hope you enjoy the museum!." </p>
+    </Html>
+  )
+}
+
 
 function App() {
 
@@ -62,6 +100,7 @@ function App() {
       resize={{scroll: false}}
       camera={{position:[MUS_POSITION[0],MUS_POSITION[1],FLOOR_SIZE+5], fov:95}}>
         <Suspense fallback={CustomLoader}>
+            <Welcome />
             <ambientLight intensity={0.6} />
             <Museum position={MUS_POSITION} width={MUS_WIDTH} height={MUS_HEIGHT} floorSize={FLOOR_SIZE}/>
             <Floor position={MUS_POSITION} width={MUS_WIDTH} height={MUS_HEIGHT} floorSize={FLOOR_SIZE}/>
