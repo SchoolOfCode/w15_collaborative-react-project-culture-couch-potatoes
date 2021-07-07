@@ -1,20 +1,18 @@
-import React, { Fragment, Suspense, useState } from "react";
+import React, { Suspense, useState } from "react";
 import { Canvas} from "@react-three/fiber";
 import { OrbitControls, Loader, useProgress, Html, Stars} from "@react-three/drei";
-
 
 import Museum from "./components/museum";
 import Exhibit from "./components/exhibits";
 import Floor from "./components/floor";
 
-// import logo from "./logo_temp.png"
-import logo from "./logo1.png";
+import logo from "./logo_2.png";
 import artworks from "./artworks";
 
 import "./App.css";
 
-const MUS_WIDTH = 70;
-const MUS_HEIGHT = 16;
+const MUS_WIDTH = 60;
+const MUS_HEIGHT = 14;
 const MUS_POSITION = [0,0,0]
 const FLOOR_SIZE = 10;
 
@@ -27,7 +25,7 @@ const setupExhibitItems = () =>{
             key={artworks[i].id}
             position={[j, 1, 0.1]} 
             size={artworks[i].size} 
-            text={`${artworks[i].title} | ${artworks[i].author} | ${artworks[i].year}`}
+            text={`${artworks[i].title + (artworks[i].author !== "" ? " | "+artworks[i].author + " | " : " | ") + artworks[i].year}`}
             image={artworks[i].image}
             altText = {artworks[i].text}
             museumParams={[MUS_WIDTH,MUS_HEIGHT,FLOOR_SIZE]}
@@ -63,18 +61,13 @@ function Welcome(){
       color: "white",
       backgroundColor: "rgba(0,0,0,0.8)",
       fontWeight:"bold",
-      width: "90vw",
-      height: "80vh",
+      width: "100vw",
+      height: "100vh",
       opacity: visible? 1 : 0,
       pointerEvents: "None"
     }}>
-      <section style={{display: "flex", flexFlow: "row", alignItems: "center"}}>
-      <figure>
-          <img id="logo" src={logo} alt="logo"/>
-          <figcaption style={{textAlign:"left"}}>
-           
-          </figcaption>
-        </figure>
+      <section style={{display: "flex", flexFlow: "row", margin: "5vh 0 0 0",}}>
+        <img id="logo" src={logo} alt="logo"/>
         <h2>Welcome to museum of history and science!</h2>
         <button id= "exit" 
           style={{pointerEvents: "auto", alignSelf:"end"}} 
@@ -103,7 +96,7 @@ function App() {
       style={{height:"100vh", width:"100vw"}}
       dpr={Math.max(window.devicePixelRatio, 2)} 
       resize={{scroll: false}}
-      camera={{position:[MUS_POSITION[0],MUS_POSITION[1],FLOOR_SIZE+5], fov:95}}>
+      camera={{position:[MUS_POSITION[0],MUS_POSITION[1],FLOOR_SIZE+3], fov:115}}>
         <Suspense fallback={CustomLoader}>
             <Welcome />
             <ambientLight intensity={0.6} />
@@ -111,12 +104,11 @@ function App() {
             <Floor position={MUS_POSITION} width={MUS_WIDTH} height={MUS_HEIGHT} floorSize={FLOOR_SIZE}/>
             {items}
             <OrbitControls 
-              minDistance={5} maxDistance={FLOOR_SIZE-1}
+              minDistance={2} maxDistance={FLOOR_SIZE-1}
               minAzimuthAngle ={-Math.PI/2.1} maxAzimuthAngle={Math.PI/2.1}
               minPolarAngle={1} maxPolarAngle={Math.PI/1.5}
               keyPanSpeed={{FLOOR_SIZE}}>
             </OrbitControls>
-
         </Suspense>
         <Stars />
     </Canvas>

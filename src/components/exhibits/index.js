@@ -61,9 +61,9 @@ function Exhibit({position,size,text,image,altText,museumParams,description}) {
       <primitive object={spot.target} position={[position[0],0, 0]} />
       <Text
         // rotation = {rotation}
-        position={[position[0],position[1]-3, position[2]]}
+        position={[position[0],position[1]-size[1]/1.5, position[2]]}
         color="white"
-        fontSize={0.2}
+        fontSize={0.25}
         anchorX="center"
         anchorY="middle"
         >
