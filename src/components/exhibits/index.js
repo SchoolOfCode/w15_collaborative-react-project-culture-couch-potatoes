@@ -77,45 +77,4 @@ function Exhibit(props) {
 
   );
 }
-// }
-{/* <Html 
-position = {[j, 1, 2]}
-as='div'
-className="description"
-style={{
-  color: "white",
-  backgroundColor: "rgba(0,0,0,0.2)",
-  transition: 'all 0.5s',
-}}>
-  <p> {EXHIBIT_PROPS[i][1].description} </p>
-</Html> */}
-
-// function Overlay({active, text, position}){
-//   const [hidden, set] = useState(false)
-    
-//   return(
-//         // <Html className={active? null: "hidden"} as='div' center="true" style={{color:"white", backgroundColor: "black", width:"100vw",height: "100vh"}}>
-//         <Html 
-//         as='div'
-//         className="description"
-//         position = {position}
-//         occlude
-//         onOcclude={set}
-//         style={{
-//           display: "grid",
-//           color: "white",
-//           backgroundColor: "rgba(0,0,0,0.2)",
-//           transition: 'all 0.5s',
-//           opacity: active ? 1 : 0,
-//         }}>
-//           <p 
-//             style={{}}
-//             >
-//             {text}
-//           </p>
-//         </Html>
-
-//   )
-// }
-  
 export default Exhibit;
