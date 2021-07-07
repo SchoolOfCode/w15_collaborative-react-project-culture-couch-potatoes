@@ -2,6 +2,7 @@ import React, { useRef, useState, useMemo } from "react";
 import { Text, useTexture, Html } from "@react-three/drei";
 import { DoubleSide, SpotLight} from 'three'
 
+
 const helperText = "Welcome to the virtual history and science museum. An interactive virtual tour that captures some of the most fascinating moments inhistory. To explore the museum use your mouse left to right. Click on exhibits of interest to find out some historic facts. We hope you enjoythe museum!."
 
 function Exhibit(props) {
@@ -57,23 +58,29 @@ function Exhibit(props) {
 function Overlay({active, text, position}){
   const [hidden, set] = useState(false)
   
+  console.log(position)
   
   return(
         // <Html className={active? null: "hidden"} as='div' center="true" style={{color:"white", backgroundColor: "black", width:"100vw",height: "100vh"}}>
         <Html 
-        // position = {position}
-        distanceFactor={15}
+        as='div'
+        className="description"
+        position = {position}
         occlude
         onOcclude={set}
         style={{
-          width: "90vw",
+          display: "grid",
           color: "white",
           backgroundColor: "rgba(0,0,0,0.2)",
           transition: 'all 0.5s',
-          opacity: active ? 0 : 1,
-          transform: `scale(${active ? 0.5 : 1})`
+          opacity: active ? 1 : 0,
+          transform: `scale(${active ? 1 : 0.5})`,
         }}>
-          <p class="content">{text}</p>
+          <p 
+            style={{}}
+            >
+            {text}
+          </p>
         </Html>
 
   )

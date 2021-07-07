@@ -1,6 +1,7 @@
 import React, { Suspense, useRef } from "react";
-import { Canvas} from "@react-three/fiber";
-import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
+import { Canvas, useThree} from "@react-three/fiber";
+import { OrbitControls} from "@react-three/drei";
+
 import Museum from "./components/museum";
 import Exhibit from "./components/exhibits";
 import Floor from "./components/floor";
@@ -26,7 +27,7 @@ const EXHIBIT_PROPS = [
 
 const setupExhibitItems = () =>{
   const exhibitItems = []
-  for (let i = 0, j = -MUS_WIDTH/2; i < EXHIBITS.length; i++, j+= (MUS_WIDTH/(EXHIBITS.length-1))){
+  for (let i = 0, j = -MUS_WIDTH/2; i < EXHIBITS.length; i++, j+= Math.floor((MUS_WIDTH/(EXHIBITS.length-1)))){
     exhibitItems.push(
       <Exhibit 
           key={EXHIBIT_PROPS[i][1].id}
@@ -42,33 +43,44 @@ const setupExhibitItems = () =>{
   return exhibitItems;
 }
 
-const Camera = ({position=[MUS_POSITION[0],MUS_POSITION[1],FLOOR_SIZE+5], fov=75}) =>{
-  // const cam = useRef()
-  return <PerspectiveCamera makeDefault position={position} fov={fov}/>
-}
+// const Camera = ({position=[MUS_POSITION[0],MUS_POSITION[1],FLOOR_SIZE+5], fov=75, items}) =>{
+//   const cam = useRef()
+  
+//   return (
+//     <>
+//     <PerspectiveCamera 
+//       ref={cam} 
+//       makeDefault 
+//       position={position} 
+//       fov={fov}
+//     />
+    
+//   </>
+//   )
+// }
+
 
 function App() {
-
-  const exhibitItems = setupExhibitItems();
+  
+  const viewport = useThree();
+  const items = setupExhibitItems();
 
   return (
     <>
     <Canvas 
-      style={{height:"100vh", width:"100vw", zIndex:"1", position:"absolute"}}
+      style={{height:"100vh", width:"100vw"}}
       dpr={Math.max(window.devicePixelRatio, 2)} 
       resize={{scroll: false}}
       >
-      <Camera />
-      {console.log(Camera.position)}
+
       <Suspense fallback={null}>
 
         <ambientLight intensity={0.6} />
 
         <Museum position={MUS_POSITION} width={MUS_WIDTH} height={MUS_HEIGHT} floorSize={FLOOR_SIZE}/>
         <Floor position={MUS_POSITION} width={MUS_WIDTH} height={MUS_HEIGHT} floorSize={FLOOR_SIZE}/>
-  
-        {exhibitItems}
-
+        {items}
+        {console.log(viewport)}
         <OrbitControls 
           minDistance={5}
           maxDistance={FLOOR_SIZE-1}
