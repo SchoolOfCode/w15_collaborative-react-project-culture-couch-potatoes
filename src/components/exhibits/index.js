@@ -1,91 +1,76 @@
 import React, { useRef, useState, useMemo } from "react";
-import { Text, useTexture } from "@react-three/drei";
+import { Text, useTexture, Html } from "@react-three/drei";
 import { DoubleSide, SpotLight} from 'three'
 
-function Exhibit(props) {
+const helperText = "Welcome to the virtual history and science museum. An interactive virtual tour that captures some of the most fascinating moments inhistory. To explore the museum use your mouse left to right. Click on exhibits of interest to find out some historic facts. We hope you enjoythe museum!."
+
+
+function Exhibit({position,size,text,image,altText,museumParams,description}) {
+
   const mesh = useRef();
   const [hovered, setHover] = useState(false);
   const [active, setActive] = useState(false);
-  const imgTexture = useTexture(props.image);
+  const imgTexture = useTexture(image);
   const spot = useMemo(() => new SpotLight(0xffffff), [])
 
   return (
     <>
-      <Overlay active={active}/>
       <mesh
-        {...props}
+        position={position}
         ref={mesh}
         scale={hovered ? 1.1 : 1}
         onClick={(e) => setActive(!active)}
         onPointerOver={(e) => setHover(true)}
-        onPointerOut={(e) => setHover(false)}
-        >
-        <planeBufferGeometry attach="geometry" args={props.size} />
+        onPointerOut={(e) => setHover(false)}>
+        <planeBufferGeometry attach="geometry" args={size} />
         <meshStandardMaterial
-          opacity={hovered ? 1 : 0.95}
           attach="material"
           map={imgTexture}
-          side={DoubleSide}
-        />
+          side={DoubleSide}/>
       </mesh>
+      <Html 
+        position = {[position[0]-4, position[1], 3]}
+        as='div'
+        className="description"
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          color: "white",
+          backgroundColor: "rgba(0,0,0,0.4)",
+          transition: 'all 0.5s',
+          opacity: active ? 1 : 0,
+          pointerEvents: "none"
+        }}>
+          <img 
+            src={image} 
+            alt={altText}
+            style={{maxWidth: "40vw"}}
+            />
+          <h2>{text}</h2>
+          <p> {description}</p>
+
+
+        </Html>
       <primitive object={spot} 
-        position={[props.position[0],5, props.museumParams[2]]} 
+        position={[position[0],5,museumParams[2]]} 
         intensity={0.8}
         penumbra={0.3}
         angle={0.6}
         />
-      <primitive object={spot.target} position={[props.position[0],0, 0]} />
+      <primitive object={spot.target} position={[position[0],0, 0]} />
       <Text
-        rotation = {props.rotation}
-        position={[props.position[0],props.position[1]-3, props.position[2]]}
+        // rotation = {rotation}
+        position={[position[0],position[1]-3, position[2]]}
         color={"white"}
-        opacity={hovered ? 1 : 0}
         fontSize={hovered ? 0.25 : 0.2}
         anchorX="center"
         anchorY="middle"
         >
-        {`${props.text}`}
+        {`${text}`}
       </Text>
       
     </>
 
   );
 }
-
-function Overlay(props){
-
-  return(
-      <>
-        <Text
-          fontSize= {0.5}
-          position={[0,0,4.1]}
-          // anchorX="left"
-          // anchorY="middle"
-          >
-          {"This is an overlay"}
-          <meshBasicMaterial
-            attach="material"
-            side={DoubleSide}
-            color={"white"}
-            transparent
-            opacity= {props.active?1:0}
-          />
-        </Text>
-    
-      <mesh position={[0,0,4]} >
-          <planeBufferGeometry 
-            attach="geometry" 
-            args={[50,15]} />
-          <meshStandardMaterial 
-            attach="material"   
-            color="black" 
-            opacity= {props.active?0.6:0} 
-            transparent= {true}
-            side={DoubleSide}
-          />
-      </mesh>
-    </>
-  )
-}
-  
 export default Exhibit;

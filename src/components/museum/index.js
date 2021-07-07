@@ -2,11 +2,10 @@ import React from "react";
 import { DoubleSide } from "three";
 import { useTexture } from "@react-three/drei";
 
-import col from "../../textures/wall/PaintedBricks001_4K_Color_darker_1.jpg";
-import disp from "../../textures/wall/PaintedBricks001_4K_Displacement.jpg";
-import norm from "../../textures/wall/PaintedBricks001_4K_Normal.jpg";
-import rough from "../../textures/wall/PaintedBricks001_4K_Roughness.jpg";
-import ao from "../../textures/wall/PaintedBricks001_4K_AmbientOcclusion.jpg";
+import col from "../../textures/wall/Plaster003_1K_Color_darker.jpg";
+import disp from "../../textures/wall/Plaster003_1K_Displacement.jpg";
+import norm from "../../textures/wall/Plaster003_1K_Normal.jpg";
+import rough from "../../textures/wall/Plaster003_1K_Roughness.jpg";
 
 function Museum({position,width,height,floorSize}) {
 
@@ -15,8 +14,7 @@ function Museum({position,width,height,floorSize}) {
     displacementMap,
     normalMap,
     roughnessMap,
-    aoMap,
-  ] = useTexture([col, disp, norm, rough, ao]);
+  ] = useTexture([col, disp, norm, rough]);
 
   const backWall = []
   const frontWall = []
@@ -30,7 +28,6 @@ function Museum({position,width,height,floorSize}) {
           displacementMap={displacementMap}
           normalMap = {normalMap}
           roughnessMap = {roughnessMap}
-          aoMap = {aoMap}
           />
       </mesh>
       )
@@ -43,7 +40,6 @@ function Museum({position,width,height,floorSize}) {
           displacementMap={displacementMap}
           normalMap = {normalMap}
           roughnessMap = {roughnessMap}
-          aoMap = {aoMap}
           />
       </mesh>
       )
@@ -52,7 +48,7 @@ function Museum({position,width,height,floorSize}) {
   return (
     <>
     {/* BACK WALL */}
-     {backWall}
+    {backWall}
     {/* LEFT WALL */}
       <mesh position={[-(width+floorSize)/2, 0, floorSize/2]} rotation={[0,Math.PI/2,0]}>
         <planeBufferGeometry attach="geometry" args={[floorSize,height]} />
@@ -62,21 +58,15 @@ function Museum({position,width,height,floorSize}) {
           displacementMap={displacementMap}
           normalMap = {normalMap}
           roughnessMap = {roughnessMap}
-          aoMap = {aoMap}
           />
       </mesh>
     {/* RIGHT WALL */}
       <mesh position={[(width+floorSize)/2, 0, floorSize/2]} rotation={[0,-Math.PI/2,0]}>
         <planeBufferGeometry attach="geometry" args={[floorSize,height]} />
         <meshStandardMaterial attach="material" side={DoubleSide}
-          displacementScale={0}
-          map={colorMap}
-          displacementMap={displacementMap}
-          normalMap = {normalMap}
-          roughnessMap = {roughnessMap}
-          aoMap = {aoMap}
+          displacementScale={0} map={colorMap} displacementMap={displacementMap}
+          normalMap = {normalMap} roughnessMap = {roughnessMap}
           />
-        />
       </mesh>
      {/* FRONT WALL */}
       {frontWall}

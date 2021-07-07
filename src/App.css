@@ -1,5 +1,14 @@
+* {
+    box-sizing: border-box;
+}
+
 body,html,#root{
     background: rgb(9, 1, 22);
     margin: 0;
     padding: 0;
+    position: fixed;
+}
+
+.description{
+    left: 0;
 }
