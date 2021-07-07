@@ -80,7 +80,7 @@ function App() {
               minDistance={5} maxDistance={FLOOR_SIZE-1}
               minAzimuthAngle ={-Math.PI/2.1} maxAzimuthAngle={Math.PI/2.1}
               minPolarAngle={1} maxPolarAngle={Math.PI/1.5}
-              keyPanSpeed={10}>
+              keyPanSpeed={{FLOOR_SIZE}}>
             </OrbitControls>
 
         </Suspense>
