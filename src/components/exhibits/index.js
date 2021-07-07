@@ -29,7 +29,7 @@ function Exhibit({position,size,text,image,altText,museumParams,description}) {
           side={DoubleSide}/>
       </mesh>
       <Html 
-        position = {[position[0]-4, position[1], 3]}
+        position = {[position[0]-size[0]%5, museumParams[1]/3, 0.3]}
         as='div'
         className="description"
         style={{
@@ -38,13 +38,14 @@ function Exhibit({position,size,text,image,altText,museumParams,description}) {
           color: "white",
           backgroundColor: "rgba(0,0,0,0.4)",
           transition: 'all 0.5s',
+          transform: `scale(${active ? 1 : 0.5})`,
           opacity: active ? 1 : 0,
           pointerEvents: "none"
         }}>
           <img 
             src={image} 
             alt={altText}
-            style={{maxWidth: "40vw"}}
+            style={{maxHeight: "40vh", width: "30vw"}}
             />
           <h2>{text}</h2>
           <p> {description}</p>
