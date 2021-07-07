@@ -62,7 +62,6 @@ function Exhibit({position,size,text,image,altText,museumParams,description}) {
         // rotation = {rotation}
         position={[position[0],position[1]-3, position[2]]}
         color={"white"}
-        opacity={hovered ? 1 : 0}
         fontSize={hovered ? 0.25 : 0.2}
         anchorX="center"
         anchorY="middle"
