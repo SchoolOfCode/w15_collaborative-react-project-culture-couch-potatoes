@@ -1,6 +1,6 @@
 import React, { Suspense} from "react";
 import { Canvas} from "@react-three/fiber";
-import { OrbitControls} from "@react-three/drei";
+import { OrbitControls, Loader, useProgress, Html} from "@react-three/drei";
 
 import Museum from "./components/museum";
 import Exhibit from "./components/exhibits";
@@ -14,6 +14,7 @@ const MUS_WIDTH = 50;
 const MUS_HEIGHT = 12;
 const MUS_POSITION = [0,0,0]
 const FLOOR_SIZE = 10;
+const helperText = "Welcome to the virtual history and science museum. An interactive virtual tour that captures some of the most fascinating moments inhistory. To explore the museum use your mouse left to right. Click on exhibits of interest to find out some historic facts. We hope you enjoythe museum!."
 
 
 const setupExhibitItems = () =>{
@@ -36,6 +37,19 @@ const setupExhibitItems = () =>{
   return exhibitItems;
 }
 
+
+function CustomLoader() {
+
+  const { progress } = useProgress()
+  return (
+    <Html center>
+      <span style={{ color: 'white' }}>{progress} % loaded</span>
+    </Html>
+
+  )
+
+}
+
 function App() {
 
   const items = setupExhibitItems();
@@ -47,7 +61,7 @@ function App() {
       dpr={Math.max(window.devicePixelRatio, 2)} 
       resize={{scroll: false}}
       camera={{position:[MUS_POSITION[0],MUS_POSITION[1],FLOOR_SIZE+5], fov:95}}>
-        <Suspense fallback={null}>
+        <Suspense fallback={CustomLoader}>
             <ambientLight intensity={0.6} />
             <Museum position={MUS_POSITION} width={MUS_WIDTH} height={MUS_HEIGHT} floorSize={FLOOR_SIZE}/>
             <Floor position={MUS_POSITION} width={MUS_WIDTH} height={MUS_HEIGHT} floorSize={FLOOR_SIZE}/>
@@ -61,6 +75,7 @@ function App() {
 
         </Suspense>
     </Canvas>
+    <Loader />
     </>
   );
 }

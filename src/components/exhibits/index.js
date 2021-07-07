@@ -2,9 +2,6 @@ import React, { useRef, useState, useMemo } from "react";
 import { Text, useTexture, Html } from "@react-three/drei";
 import { DoubleSide, SpotLight} from 'three'
 
-const helperText = "Welcome to the virtual history and science museum. An interactive virtual tour that captures some of the most fascinating moments inhistory. To explore the museum use your mouse left to right. Click on exhibits of interest to find out some historic facts. We hope you enjoythe museum!."
-
-
 function Exhibit({position,size,text,image,altText,museumParams,description}) {
 
   const mesh = useRef();
@@ -26,6 +23,8 @@ function Exhibit({position,size,text,image,altText,museumParams,description}) {
         <meshStandardMaterial
           attach="material"
           map={imgTexture}
+          transparent
+          opacity={active ? 0.3 : 1}
           side={DoubleSide}/>
       </mesh>
       <Html 
@@ -34,9 +33,9 @@ function Exhibit({position,size,text,image,altText,museumParams,description}) {
         className="description"
         style={{
           display: "flex",
-          flexDirection: "row",
+          flexDirection: "column",
           color: "white",
-          backgroundColor: "rgba(0,0,0,0.4)",
+          backgroundColor: "rgba(0,0,0,0.7)",
           transition: 'all 0.5s',
           transform: `scale(${active ? 1 : 0.5})`,
           opacity: active ? 1 : 0,
@@ -45,7 +44,7 @@ function Exhibit({position,size,text,image,altText,museumParams,description}) {
           <img 
             src={image} 
             alt={altText}
-            style={{maxHeight: "40vh", width: "30vw"}}
+            style={{maxHeight: "50vh", width: "50vw"}}
             />
           <h2>{text}</h2>
           <p> {description}</p>
@@ -62,12 +61,13 @@ function Exhibit({position,size,text,image,altText,museumParams,description}) {
       <Text
         // rotation = {rotation}
         position={[position[0],position[1]-3, position[2]]}
-        color={"white"}
-        fontSize={hovered ? 0.25 : 0.2}
+        color="white"
+        fontSize={0.2}
         anchorX="center"
         anchorY="middle"
         >
         {`${text}`}
+        <meshBasicMaterial attach="material" opacity = {active ? 0 : 0.8}/>
       </Text>
       
     </>
