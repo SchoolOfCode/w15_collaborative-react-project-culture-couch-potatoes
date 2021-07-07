@@ -1,6 +1,7 @@
-import React, { useRef, useState, useMemo } from "react";
+import React, { useRef, useState, useMemo, Fragment } from "react";
 import { Text, useTexture, Html } from "@react-three/drei";
 import { DoubleSide, SpotLight} from 'three'
+
 
 function Exhibit({position,size,text,image,altText,museumParams,description}) {
 
@@ -11,7 +12,7 @@ function Exhibit({position,size,text,image,altText,museumParams,description}) {
   const spot = useMemo(() => new SpotLight(0xffffff), [])
 
   return (
-    <>
+    <Fragment>
       <mesh
         position={position}
         ref={mesh}
@@ -70,7 +71,7 @@ function Exhibit({position,size,text,image,altText,museumParams,description}) {
         <meshBasicMaterial attach="material" opacity = {active ? 0 : 0.8}/>
       </Text>
       
-    </>
+    </Fragment>
 
   );
 }

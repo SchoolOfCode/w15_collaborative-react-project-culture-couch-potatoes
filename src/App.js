@@ -1,18 +1,20 @@
-import React, { Suspense, useState } from "react";
+import React, { Fragment, Suspense, useState } from "react";
 import { Canvas} from "@react-three/fiber";
 import { OrbitControls, Loader, useProgress, Html, Stars} from "@react-three/drei";
+
 
 import Museum from "./components/museum";
 import Exhibit from "./components/exhibits";
 import Floor from "./components/floor";
 
-import logo from "./logo_temp.png"
+// import logo from "./logo_temp.png"
+import logo from "./logo1.png";
 import artworks from "./artworks";
 
 import "./App.css";
 
-const MUS_WIDTH = 50;
-const MUS_HEIGHT = 12;
+const MUS_WIDTH = 70;
+const MUS_HEIGHT = 16;
 const MUS_POSITION = [0,0,0]
 const FLOOR_SIZE = 10;
 
@@ -59,7 +61,8 @@ function Welcome(){
       flexDirection: "column",
       alignItems: "center",
       color: "white",
-      backgroundColor: "rgba(0,0,0,0.9)",
+      backgroundColor: "rgba(0,0,0,0.8)",
+      fontWeight:"bold",
       width: "90vw",
       height: "80vh",
       opacity: visible? 1 : 0,
@@ -67,22 +70,24 @@ function Welcome(){
     }}>
       <section style={{display: "flex", flexFlow: "row", alignItems: "center"}}>
       <figure>
-          <img src={logo} alt="logo" style={{maxWidth: "5vw"}}/>
+          <img id="logo" src={logo} alt="logo"/>
           <figcaption style={{textAlign:"left"}}>
-            Virtual Museum of Memes
+           
           </figcaption>
         </figure>
-        <h2>Welcome to the Museum of Memes!</h2>
-        <button 
+        <h2>Welcome to museum of history and science!</h2>
+        <button id= "exit" 
           style={{pointerEvents: "auto", alignSelf:"end"}} 
           onClick={(e) => setVisible(!visible)}>
           Exit
         </button>
       </section>
-      <p style={{ color: 'white' }}>
+      <div class= "main">
+      <p>
        Presenting an interactive virtual tour that captures some of the most fascinating moments in history.</p>
        <p>To explore the museum use your mouse wheel or scroll to zoom in and out, right-click and drag to move around, and left-click and drag to look around. 
-        Click on exhibits of interest to find out some historic facts. We hope you enjoy the museum!." </p>
+        Click on exhibits of interest to find out some historic facts. We hope you enjoy the museum!. </p>
+        </div>
     </Html>
   )
 }
