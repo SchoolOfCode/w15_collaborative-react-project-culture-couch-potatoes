@@ -28,12 +28,12 @@ function Exhibit({position,size,text,image,altText,museumParams,description, lin
           map={imgTexture}
           transparent
           opacity={active ? 0.3 : 1}
-          metalness={0.6}
+          metalness={0.4}
           // color={hovered ? "#ADD8E6" : "white"}
           side={DoubleSide}/>
       </mesh>
       <primitive object={spot} 
-        position={[position[0],5,museumParams[2]]} 
+        position={[position[0],5,museumParams[2]/2]} 
         intensity={0.8}
         penumbra={0.3}
         angle={0.6}
@@ -92,20 +92,6 @@ function Exhibit({position,size,text,image,altText,museumParams,description, lin
             >{text}</h2>
             <p> {description}</p>
           </section>
-          {/* <img
-            style={{
-            position: "absolute",
-            right: "1vw",
-            top: "1vh",
-            pointerEvents: active?"auto":"none",
-            width:"2em",
-            filter:"invert(100%)",
-            magin: "1em 1em",
-            }}
-            src={exit}
-            alt="exit button to dismiss the help instructions"
-            onClick={(e) => setActive(false)}
-        /> */}
         </Html>
       
     </>
