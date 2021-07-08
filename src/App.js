@@ -1,6 +1,7 @@
 import React, { Suspense } from "react";
 import { Canvas} from "@react-three/fiber";
-import { OrbitControls, Loader, useProgress, Html, Stars} from "@react-three/drei";
+import { OrbitControls, Loader, useProgress, Html, Stars, useGLTF} from "@react-three/drei";
+
 //World building imports
 import Museum from "./components/museum";
 import Exhibit from "./components/exhibits";
@@ -10,11 +11,12 @@ import Welcome from "./components/welcome";
 import artworks from "./artworks";
 //CSS reset imports
 import "./App.css";
+import Wright from "./components/wright";
 //Const global variables
 const MUS_WIDTH = 60;
-const MUS_HEIGHT = 14;
+const MUS_HEIGHT = 12;
 const MUS_POSITION = [0,0,0]
-const FLOOR_SIZE = 10;
+const FLOOR_SIZE = 12;
 
 const setupExhibitItems = () =>{
   const exhibitItems = []
@@ -30,6 +32,7 @@ const setupExhibitItems = () =>{
             altText = {artworks[i].text}
             museumParams={[MUS_WIDTH,MUS_HEIGHT,FLOOR_SIZE]}
             description = {artworks[i].description}
+            link={artworks[i].url}
         />
     );
   }
@@ -62,11 +65,14 @@ function App() {
             <Museum position={MUS_POSITION} width={MUS_WIDTH} height={MUS_HEIGHT} floorSize={FLOOR_SIZE}/>
             <Floor position={MUS_POSITION} width={MUS_WIDTH} height={MUS_HEIGHT} floorSize={FLOOR_SIZE}/>
             {items}
+            <Wright position={[(MUS_WIDTH/2)-2,-3,6]} rotation={[-Math.PI/2,0,Math.PI/2]} scale={0.05}
+              museumParams = {[MUS_WIDTH,MUS_HEIGHT,FLOOR_SIZE]}
+            />
             <OrbitControls 
               minDistance={2} maxDistance={FLOOR_SIZE-1}
               minAzimuthAngle ={-Math.PI/2.1} maxAzimuthAngle={Math.PI/2.1}
               minPolarAngle={1} maxPolarAngle={Math.PI/1.5}
-              keyPanSpeed={{FLOOR_SIZE}}>
+              keyPanSpeed={FLOOR_SIZE}>
             </OrbitControls>
             
         </Suspense>

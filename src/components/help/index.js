@@ -45,15 +45,16 @@ function Help(){
             }}>
                 <br />
                 <img
-                style={{
-                position:"absolute",
-                right:"5%",
-                pointerEvents: "auto",
-                alignSelf: "center",
-                width:"calc(2em + 0.1vw)",
-                filter:exitHovered? "invert(100%) drop-shadow(2px 2px 5px gold)":"invert(100%)",
-                transition: 'all 0.5s ease',
-                transform: `rotate3d(${exitHovered ? "0,0,1,270deg" : "0,0,0,0deg"})`,
+                    style={{
+                    position:"absolute",
+                    right:"1vw",
+                    top: "1vh",
+                    pointerEvents: "auto",
+                    alignSelf: "center",
+                    width:"calc(2em + 0.1vw)",
+                    filter:exitHovered? "invert(100%) drop-shadow(2px 2px 5px gold)":"invert(100%)",
+                    transition: 'all 0.5s ease',
+                    transform: `rotate3d(${exitHovered ? "0,0,1,270deg" : "0,0,0,0deg"})`,
                 }}
                 src={exit}
                 alt="exit button to dismiss the help instructions"

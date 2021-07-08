@@ -47,10 +47,12 @@ function Welcome(){
             </h2>
             <img
                 style={{
-                gridColumn:3,
+                position: "absolute",
+                top: "2vh",
+                right: "2vw",
                 pointerEvents: "auto",
                 alignSelf: "center",
-                width:"calc(4em + 0.1vw)",
+                width:"calc(3em + 0.1vw)",
                 filter:hovered? "invert(100%) drop-shadow(2px 2px 5px gold)":"invert(100%)",
                 transition: 'all 0.5s ease',
                 transform: `rotate3d(${hovered ? "0,0,1,270deg" : "0,0,0,0deg"})`,
