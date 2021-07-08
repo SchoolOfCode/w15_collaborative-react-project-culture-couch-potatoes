@@ -2,6 +2,7 @@ import React, { useRef, useState, useMemo } from "react";
 import { Text, useTexture, Html } from "@react-three/drei";
 import { DoubleSide, SpotLight} from 'three'
 
+
 function Exhibit({position,size,text,image,altText,museumParams,description}) {
 
   const mesh = useRef();
@@ -12,6 +13,7 @@ function Exhibit({position,size,text,image,altText,museumParams,description}) {
 
   return (
     <>
+      {/* IMAGE ON THE WALL */}
       <mesh
         position={position}
         ref={mesh}
@@ -25,10 +27,32 @@ function Exhibit({position,size,text,image,altText,museumParams,description}) {
           map={imgTexture}
           transparent
           opacity={active ? 0.3 : 1}
+          // color={hovered ? "#ADD8E6" : "white"}
           side={DoubleSide}/>
       </mesh>
+      <primitive object={spot} 
+        position={[position[0],5,museumParams[2]]} 
+        intensity={0.8}
+        penumbra={0.3}
+        angle={0.6}
+        />
+      <primitive object={spot.target} position={[position[0],0, 0]} />
+      <Text
+        // rotation = {rotation}
+        position={[position[0],position[1]-size[1]/1.5, position[2]]}
+        color="white"
+        fontSize={0.25}
+        anchorX="center"
+        anchorY="middle"
+        >
+        {`${text}`}
+        <meshBasicMaterial attach="material" opacity = {active ? 0 : 0.8}/>
+      </Text>
+
+      {/* OVERLAY */}
+
       <Html 
-        position = {[position[0]-size[0]%5, museumParams[1]/3, 0.3]}
+        position = {[position[0]-5, museumParams[1]/3, 0.3]}
         as='div'
         className="description"
         style={{
@@ -48,27 +72,7 @@ function Exhibit({position,size,text,image,altText,museumParams,description}) {
             />
           <h2>{text}</h2>
           <p> {description}</p>
-
-
         </Html>
-      <primitive object={spot} 
-        position={[position[0],5,museumParams[2]]} 
-        intensity={0.8}
-        penumbra={0.3}
-        angle={0.6}
-        />
-      <primitive object={spot.target} position={[position[0],0, 0]} />
-      <Text
-        // rotation = {rotation}
-        position={[position[0],position[1]-3, position[2]]}
-        color="white"
-        fontSize={0.2}
-        anchorX="center"
-        anchorY="middle"
-        >
-        {`${text}`}
-        <meshBasicMaterial attach="material" opacity = {active ? 0 : 0.8}/>
-      </Text>
       
     </>
 

@@ -1,12 +1,12 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { useTexture } from "@react-three/drei";
 import { DoubleSide } from "three";
 // import texture from "../../textures/floor/test.png"
-import col from "../../textures/floor/WoodFloor040_1K_Color.jpg";
-import disp from "../../textures/floor/WoodFloor040_1K_Displacement.jpg";
-import norm from "../../textures/floor/WoodFloor040_1K_Normal.jpg";
-import rough from "../../textures/floor/WoodFloor040_1K_Roughness.jpg";
-import ao from "../../textures/floor/WoodFloor040_1K_AmbientOcclusion.jpg";
+import col from "../../textures/floor/WoodFloor039_1K_Color.jpg";
+import disp from "../../textures/floor/WoodFloor039_1K_Displacement.jpg";
+import norm from "../../textures/floor/WoodFloor039_1K_Normal.jpg";
+import rough from "../../textures/floor/WoodFloor039_1K_Roughness.jpg";
+import ao from "../../textures/floor/WoodFloor039_1K_AmbientOcclusion.jpg";
 
 
 function Floor({position,width,height,floorSize}) {

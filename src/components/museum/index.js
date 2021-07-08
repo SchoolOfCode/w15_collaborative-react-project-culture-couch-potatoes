@@ -1,11 +1,11 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { DoubleSide } from "three";
 import { useTexture } from "@react-three/drei";
 
 import col from "../../textures/wall/Plaster003_1K_Color_darker.jpg";
-import disp from "../../textures/wall/Plaster003_1K_Displacement.jpg";
-import norm from "../../textures/wall/Plaster003_1K_Normal.jpg";
-import rough from "../../textures/wall/Plaster003_1K_Roughness.jpg";
+import disp from "../../textures/wall/PaintedPlaster001_2K_Displacement.jpg";
+import norm from "../../textures/wall/PaintedPlaster001_2K_Normal.jpg";
+import rough from "../../textures/wall/PaintedPlaster001_2K_Roughness.jpg";
 
 function Museum({position,width,height,floorSize}) {
 
