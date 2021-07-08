@@ -19,7 +19,7 @@ const FLOOR_SIZE = 10;
 const setupExhibitItems = () =>{
   const exhibitItems = []
 
-  for (let i = 0, j = -MUS_WIDTH/2, l=artworks.length; i < l; i++, j+= Math.floor((MUS_WIDTH/(l-1)))){
+  for (let i = 0, j = -(MUS_WIDTH/2)+8, l=artworks.length; i < l; i++, j+= Math.floor((MUS_WIDTH/(l)))){
     exhibitItems.push(
         <Exhibit 
             key={artworks[i].id}
