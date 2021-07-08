@@ -4,7 +4,7 @@ Welcome to this react learning showcase, the online virtual museum.
 This is an interactive virtual tour that captures some fascinating moments in the history and future of science and allows you to explore them in the comfort and safety of your browser.
 
 ## Current Site:
-<img src="public/2021-07-08 11-38.gif" width = 900>
+
 
 ## How to Start:
 Once downloaded, in the project directory, you can run:
