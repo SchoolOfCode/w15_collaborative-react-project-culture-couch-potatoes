@@ -55,34 +55,4 @@ function Help(){
     )
 }
 
-
-		// 		<h2>Instructions</h2>
-		// 		<h4>To explore the museum:</h4>
-		// 		<ol>
-		// 			<li>Use your mouse wheel or scroll to zoom in and out</li> 
-		// 			<li>Right-click and drag to move around</li>
-		// 			<li>left-click and drag to look around</li> 
-		// 			<li> Click on exhibits of interest to find out more information</li>
-		// 		</ol>
-		// 		
-
-		// 	</div>
-		// </div>
-
-		// <script>
-		// 	let modal = document.getElementById("myModal");
-		// 	let btn = document.getElementById("myBtn");
-		// 	let span = document.getElementsByClassName("close")[0];
-		// 	btn.onclick = function () {
-		// 		modal.style.display = "block";
-		// 	};
-		// 	span.onclick = function () {
-		// 		modal.style.display = "none";
-		// 	};
-		// 	window.onclick = function (event) {
-		// 		if (event.target == modal) {
-		// 			modal.style.display = "none";
-		// 		}
-		// 	};
-		// </script>
 export default Help;

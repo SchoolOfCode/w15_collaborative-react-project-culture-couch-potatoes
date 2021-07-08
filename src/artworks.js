@@ -1,5 +1,5 @@
 import Colossus from "./objects/Colossus.jpg"
-import Nebra_Scheibe from "./objects/Nebra_Scheibe.jpg"
+import Nebra_Scheibe from "./objects/nebra.png"
 import alternatives from "./objects/alternatives.jpg"
 import Tabula from "./objects/Tabula.jpg"
 
@@ -15,7 +15,7 @@ let artworks = [
         description:"Colossus was a set of computers developed by British codebreakers in the years 1943–1945 to help in the cryptanalysis of the Lorenz cipher. Colossus used thermionic valves (vacuum tubes) to perform Boolean and counting operations. Colossus is thus regarded as the world's first programmable, electronic, digital computer, although it was programmed by switches and plugs and not by a stored program. Colossus was designed by General Post Office (GPO) research telephone engineer Tommy Flowers to solve a problem posed by mathematician Max Newman at the Government Code and Cypher School (GC&CS) at Bletchley Park.",
     },
     {   id: 2,
-        size: [6,6],
+        size: [8,8],
         title:"Nebra Sky Disk",
         author:"",
         year:"1600 BC" ,
