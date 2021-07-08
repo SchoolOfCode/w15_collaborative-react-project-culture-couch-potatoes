@@ -1,16 +1,19 @@
 import React, { Suspense, useState } from "react";
 import { Canvas} from "@react-three/fiber";
 import { OrbitControls, Loader, useProgress, Html, Stars} from "@react-three/drei";
-
+//World building imports
 import Museum from "./components/museum";
 import Exhibit from "./components/exhibits";
 import Floor from "./components/floor";
-
+import Welcome from "./components/welcome";
+//image/icons imports
 import logo from "./logo_2.png";
+import help from "./help.png";
+//Text data imports for exhibits
 import artworks from "./artworks";
-
+//CSS reset imports
 import "./App.css";
-
+//Const global variables
 const MUS_WIDTH = 60;
 const MUS_HEIGHT = 14;
 const MUS_POSITION = [0,0,0]
@@ -36,7 +39,6 @@ const setupExhibitItems = () =>{
   return exhibitItems;
 }
 
-
 function CustomLoader() {
   const { progress } = useProgress()
   return (
@@ -45,46 +47,6 @@ function CustomLoader() {
     </Html>
   )
 }
-
-function Welcome(){
-  const [visible, setVisible] = useState(true);
-
-  return (
-    <Html 
-    center
-    as='div'
-    className="welcome"
-    style = {{
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      color: "white",
-      backgroundColor: "rgba(0,0,0,0.8)",
-      fontWeight:"bold",
-      width: "100vw",
-      height: "100vh",
-      opacity: visible? 1 : 0,
-      pointerEvents: "None"
-    }}>
-      <section style={{display: "flex", flexFlow: "row", margin: "5vh 0 0 0",}}>
-        <img id="logo" src={logo} alt="logo"/>
-        <h2>Welcome to museum of history and science!</h2>
-        <button id= "exit" 
-          style={{pointerEvents: "auto", alignSelf:"end"}} 
-          onClick={(e) => setVisible(!visible)}>
-          Exit
-        </button>
-      </section>
-      <div class= "main">
-      <p>
-       Presenting an interactive virtual tour that captures some of the most fascinating moments in history.</p>
-       <p>To explore the museum use your mouse wheel or scroll to zoom in and out, right-click and drag to move around, and left-click and drag to look around. 
-        Click on exhibits of interest to find out some historic facts. We hope you enjoy the museum!. </p>
-        </div>
-    </Html>
-  )
-}
-
 
 function App() {
 
@@ -96,7 +58,7 @@ function App() {
       style={{height:"100vh", width:"100vw"}}
       dpr={Math.max(window.devicePixelRatio, 2)} 
       resize={{scroll: false}}
-      camera={{position:[MUS_POSITION[0],MUS_POSITION[1],FLOOR_SIZE+3], fov:115}}>
+      camera={{position:[MUS_POSITION[0],MUS_POSITION[1],FLOOR_SIZE+3], fov:95}}>
         <Suspense fallback={CustomLoader}>
             <Welcome />
             <ambientLight intensity={0.6} />

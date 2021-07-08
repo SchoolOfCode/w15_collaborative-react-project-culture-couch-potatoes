@@ -1,4 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Karla:wght@500&display=swap");
+@font-face {
+	font-family: 'Raleway';
+	src: url('./Raleway-VariableFont_wght.ttf');
+}
 
 * {
 	box-sizing: border-box;
@@ -11,45 +14,5 @@ html,
 	margin: 0;
 	padding: 0;
 	position: fixed;
-}
-
-.description {
-	left: 0;
-}
-
-.main {
-	font-family: "Karla", sans-serif;
-	text-align: center;
-	font-size: 20px;
-}
-
-h2 {
-	font-family: "Karla", sans-serif;
-	font-weight: bold;
-	text-align: center;
-	font-size: 35px;
-}
-
-#logo {
-	position: fixed;
-    top: 0;
-	left: 0;
-    display:inline;
-	max-width: 12vw;
-	margin-left: 15px;
-	
-}
-
-#exit{
-	position: fixed;
-    display:inline;
-    right: 0;
-	top: 0;
-	margin-right: 15px;
-	font-family: "Karla", sans-serif;
-	font-size: 18px;
-}
-
-#exit:hover{
- background-color:red;
+	font-family: 'Raleway', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
