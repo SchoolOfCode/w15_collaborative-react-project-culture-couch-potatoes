@@ -69,7 +69,7 @@ function App() {
               museumParams = {[MUS_WIDTH,MUS_HEIGHT,FLOOR_SIZE]}
             />
             <OrbitControls 
-              minDistance={2} maxDistance={FLOOR_SIZE-1}
+              minDistance={2} maxDistance={FLOOR_SIZE-3}
               minAzimuthAngle ={-Math.PI/2.1} maxAzimuthAngle={Math.PI/2.1}
               minPolarAngle={1} maxPolarAngle={Math.PI/1.5}
               keyPanSpeed={FLOOR_SIZE}>
