@@ -65,7 +65,7 @@ function App() {
             <Museum position={MUS_POSITION} width={MUS_WIDTH} height={MUS_HEIGHT} floorSize={FLOOR_SIZE}/>
             <Floor position={MUS_POSITION} width={MUS_WIDTH} height={MUS_HEIGHT} floorSize={FLOOR_SIZE}/>
             {items}
-            <Wright position={[0,0,4]} rotation={[-Math.PI/2,0,Math.PI/2]} scale={[0.05,0.05,0.05]}/>
+            <Wright position={[(MUS_WIDTH/2)-2,0,6]} rotation={[-Math.PI/2,0,Math.PI/2]} scale={[0.05,0.05,0.05]}/>
             <OrbitControls 
               minDistance={2} maxDistance={FLOOR_SIZE-1}
               minAzimuthAngle ={-Math.PI/2.1} maxAzimuthAngle={Math.PI/2.1}
