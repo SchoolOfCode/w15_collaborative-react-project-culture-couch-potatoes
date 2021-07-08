@@ -1,10 +1,12 @@
 import React, {useState} from "react";
 import helpImg from "../../help.png"
+import exit from "../../exit.png";
 
 function Help(){
 
-    const [visible, setVisible] = useState(false)
-    const [hovered, setHovered] = useState(false)
+    const [visible, setVisible] = useState(false);
+    const [hovered, setHovered] = useState(false);
+    const [exitHovered, setExitHovered] = useState(false);
 
     return (
         <>
@@ -19,14 +21,14 @@ function Help(){
                 top: "1em",
                 width: "3em",
                 filter:hovered? "invert(100%) drop-shadow(2px 2px 5px gold)":"invert(100%)",
-                transition: 'all 0.5s',
-                transform: `scale(${hovered ? 1.25 : 1})`,
+                transition: 'all 1s ease',
+                transform: `rotate3d(${hovered ? "0,1,0,360deg" : "0,0,0,0deg"})`,
             }}
             onClick={(e)=>setVisible(!visible)}
             onMouseEnter={(e)=>setHovered(true)}
             onMouseLeave={(e)=> setHovered(false)}
         />
-        <section             
+        <section           
             style={{
                 padding: "10px",
                 color: "white",
@@ -42,6 +44,23 @@ function Help(){
                 opacity: visible?1:0,
             }}>
                 <br />
+                <img
+                style={{
+                position:"absolute",
+                right:"5%",
+                pointerEvents: "auto",
+                alignSelf: "center",
+                width:"calc(2em + 0.1vw)",
+                filter:exitHovered? "invert(100%) drop-shadow(2px 2px 5px gold)":"invert(100%)",
+                transition: 'all 0.5s ease',
+                transform: `rotate3d(${exitHovered ? "0,0,1,270deg" : "0,0,0,0deg"})`,
+                }}
+                src={exit}
+                alt="exit button to dismiss the help instructions"
+                onClick={(e) => setVisible(false)}
+                onMouseEnter={(e) => setExitHovered(true)}
+                onMouseLeave={(e) => setExitHovered(false)}
+            />
                 <u>Instructions</u>
 				<p>To explore the museum:</p>
 				<ol>

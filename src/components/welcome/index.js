@@ -5,7 +5,8 @@ import exit from "../../exit.png";
 
 function Welcome(){
     const [visible, setVisible] = useState(true);
-    const [glow,setGlow] = useState(false);
+    const [hovered,setHovered] = useState(false);
+
     return (
         <Html 
         center
@@ -18,7 +19,7 @@ function Welcome(){
         width: "100vw",
         height: "100vh",
         opacity: visible? 1 : 0,
-        pointerEvents: "None"
+        pointerEvents: "none",
         }}>
         <section 
             style={{
@@ -50,13 +51,15 @@ function Welcome(){
                 pointerEvents: "auto",
                 alignSelf: "center",
                 width:"calc(4em + 0.1vw)",
-                filter:glow? "invert(100%) drop-shadow(2px 2px 5px gold)":"invert(100%)",
+                filter:hovered? "invert(100%) drop-shadow(2px 2px 5px gold)":"invert(100%)",
+                transition: 'all 0.5s ease',
+                transform: `rotate3d(${hovered ? "0,0,1,270deg" : "0,0,0,0deg"})`,
                 }}
                 src={exit}
                 alt="exit button to dismiss the help"
                 onClick={(e) => setVisible(!visible)}
-                onMouseEnter={(e) => setGlow(true)}
-                onMouseLeave={(e) => setGlow(false)}
+                onMouseEnter={(e) => setHovered(true)}
+                onMouseLeave={(e) => setHovered(false)}
             />
         </section>
 
