@@ -5,7 +5,7 @@ import model from "../../objects/wright/wright.gltf"
 
 function Wright({position, rotation, scale, museumParams}) {
     const group = useRef()
-    const { nodes, materials } = useGLTF(model)
+    const { nodes } = useGLTF(model)
     const rightPropeller = useRef()
     const leftPropeller = useRef()
     const engine = "#5c5a54" //grey

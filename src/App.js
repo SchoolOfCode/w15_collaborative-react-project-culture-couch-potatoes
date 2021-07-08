@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import { Canvas} from "@react-three/fiber";
-import { OrbitControls, Loader, useProgress, Html, Stars, useGLTF} from "@react-three/drei";
+import { OrbitControls, Loader, useProgress, Html, Stars} from "@react-three/drei";
 
 //World building imports
 import Museum from "./components/museum";
@@ -58,7 +58,7 @@ function App() {
       style={{height:"100vh", width:"100vw"}}
       dpr={Math.max(window.devicePixelRatio, 2)} 
       resize={{scroll: false}}
-      camera={{position:[MUS_POSITION[0],MUS_POSITION[1],FLOOR_SIZE+3], fov:95}}>
+      camera={{position:[MUS_POSITION[0],MUS_POSITION[1],FLOOR_SIZE+5], fov:95}}>
         <Suspense fallback={CustomLoader}>
             <Welcome />
             <ambientLight intensity={0.6} />
@@ -74,7 +74,6 @@ function App() {
               minPolarAngle={1} maxPolarAngle={Math.PI/1.5}
               keyPanSpeed={FLOOR_SIZE}>
             </OrbitControls>
-            
         </Suspense>
         <Stars />
     </Canvas>

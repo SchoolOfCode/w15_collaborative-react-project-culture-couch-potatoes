@@ -1,7 +1,6 @@
 import React, { useRef, useState, useMemo } from "react";
-import { Text, useTexture, Html, Center } from "@react-three/drei";
+import { Text, useTexture, Html } from "@react-three/drei";
 import { DoubleSide, SpotLight} from 'three'
-import exit from "../../exit.png";
 
 function Exhibit({position,size,text,image,altText,museumParams,description, link}) {
 
