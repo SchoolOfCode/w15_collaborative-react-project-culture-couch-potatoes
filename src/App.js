@@ -1,4 +1,4 @@
-import React, { Suspense, useState } from "react";
+import React, { Suspense } from "react";
 import { Canvas} from "@react-three/fiber";
 import { OrbitControls, Loader, useProgress, Html, Stars} from "@react-three/drei";
 //World building imports
@@ -6,9 +6,6 @@ import Museum from "./components/museum";
 import Exhibit from "./components/exhibits";
 import Floor from "./components/floor";
 import Welcome from "./components/welcome";
-//image/icons imports
-import logo from "./logo_2.png";
-import help from "./help.png";
 //Text data imports for exhibits
 import artworks from "./artworks";
 //CSS reset imports
@@ -71,6 +68,7 @@ function App() {
               minPolarAngle={1} maxPolarAngle={Math.PI/1.5}
               keyPanSpeed={{FLOOR_SIZE}}>
             </OrbitControls>
+            
         </Suspense>
         <Stars />
     </Canvas>

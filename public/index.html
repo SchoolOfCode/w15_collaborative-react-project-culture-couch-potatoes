@@ -7,51 +7,11 @@
 			name="Virtual 3D Museum"
 			content="Created with three.js, react-three-fiber and drei, and React"
 		/>
-
-		<link rel="stylesheet" href="../src/index.css" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Karla:wght@500&display=swap"
-			rel="stylesheet"
-		/>
-
+		<link rel="stylesheet" href="./styles.css">
+		<script src="main.js" defer></script>
 		<title>Virtual Museum Tour</title>
 	</head>
 	<body>
-		
-		<button id="myBtn">Help</button>
-		<div id="myModal" class="modal">
-			<div class="modal-content">
-				<span class="close"></span>
-				<h2>Instructions</h2>
-				<h4>To explore the museum:</h4>
-				<ol>
-					<li>Use your mouse wheel or scroll to zoom in and out</li> 
-					<li>Right-click and drag to move around</li>
-					<li>left-click and drag to look around</li> 
-					<li> Click on exhibits of interest to find out more information</li>
-				</ol>
-
-			</div>
-		</div>
-
-		<script>
-			let modal = document.getElementById("myModal");
-			let btn = document.getElementById("myBtn");
-			let span = document.getElementsByClassName("close")[0];
-			btn.onclick = function () {
-				modal.style.display = "block";
-			};
-			span.onclick = function () {
-				modal.style.display = "none";
-			};
-			window.onclick = function (event) {
-				if (event.target == modal) {
-					modal.style.display = "none";
-				}
-			};
-		</script>
 		<div id="root"></div>
 	</body>
 </html>

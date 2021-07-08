@@ -1,13 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
+import Help from "./components/help";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 
 const root = document.querySelector("#root")
 
 ReactDOM.render(
-  <App />,
+  <>
+  <Help />
+  <App />
+  </>,
   root
 );
 
