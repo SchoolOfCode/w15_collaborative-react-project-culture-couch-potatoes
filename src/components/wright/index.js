@@ -46,7 +46,7 @@ function Wright({position, rotation, scale, museumParams}) {
         <group >
 
         <Html
-            position={[group.current.position.x,group.current.position.y,1]}
+            position={[1,2,1]}
             style={{
                 color: 'white',
                 backgroundColor: "rgba(0,0,0,0.7)",
