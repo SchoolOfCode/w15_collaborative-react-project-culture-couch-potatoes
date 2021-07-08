@@ -5,7 +5,7 @@ import exit from "../../exit.png";
 
 function Welcome(){
     const [visible, setVisible] = useState(true);
-
+    const [glow,setGlow] = useState(false);
     return (
         <Html 
         center
@@ -30,7 +30,7 @@ function Welcome(){
             alt="logo" 
             style={{
                 gridColumn:1, 
-                width:"15em", 
+                width:"calc(14em + 0.1vw)", 
                 filter:"invert(100%)", 
                 justifySelf:"center", 
                 alignSelf:"center"}}
@@ -40,20 +40,23 @@ function Welcome(){
                 gridColumn:2, 
                 textAlign:"center", 
                 fontWeight:200, 
-                fontSize:"3.5rem"}}
+                fontSize:"calc(3em + 0.1vw)"}}
             >
-            Welcome to museum of history and science!
+            Welcome to the Virtual Museum <br/>of History and Science!
             </h2>
             <img
                 style={{
                 gridColumn:3,
                 pointerEvents: "auto",
-                alignSelf:"center", 
-                width:"5em",
-                filter:"invert(100%)"}}
+                alignSelf: "center",
+                width:"calc(4em + 0.1vw)",
+                filter:glow? "invert(100%) drop-shadow(2px 2px 5px gold)":"invert(100%)",
+                }}
                 src={exit}
                 alt="exit button to dismiss the help"
                 onClick={(e) => setVisible(!visible)}
+                onMouseEnter={(e) => setGlow(true)}
+                onMouseLeave={(e) => setGlow(false)}
             />
         </section>
 
@@ -61,14 +64,15 @@ function Welcome(){
             style={{
             margin: "5vh 5vw",
             fontWeight: 300,
+            fontSize: "calc(1em + 1vw)",
             }}
         >
             <p>
-            Presenting an interactive virtual tour that captures some of the most fascinating moments in history.
+            This is an interactive virtual tour that captures some fascinating moments in the history and future of science.
             </p>
             <p>
             To explore the museum use your mouse wheel or scroll to zoom in and out, right-click and drag to move around, and left-click and drag to look around. 
-            Click on exhibits of interest to find out some historic facts. We hope you enjoy the museum!. 
+            Click on exhibits of interest to find out more information. We hope you enjoy the museum!. 
             </p>
         </section>
         </Html>
