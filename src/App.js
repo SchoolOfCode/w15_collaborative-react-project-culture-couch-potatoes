@@ -75,7 +75,7 @@ function Welcome(){
            
           </figcaption>
         </figure>
-        <h2>Welcome to museum of history and science!</h2>
+        <h2>WELCOME TO THE MUSEUM OF SCIENCE AND HISTORY</h2>
         <button id= "exit" 
           style={{pointerEvents: "auto", alignSelf:"end"}} 
           onClick={(e) => setVisible(!visible)}>
