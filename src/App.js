@@ -1,6 +1,7 @@
 import React, { Suspense } from "react";
 import { Canvas} from "@react-three/fiber";
-import { OrbitControls, Loader, useProgress, Html, Stars} from "@react-three/drei";
+import { OrbitControls, Loader, useProgress, Html, Stars, useGLTF} from "@react-three/drei";
+
 //World building imports
 import Museum from "./components/museum";
 import Exhibit from "./components/exhibits";

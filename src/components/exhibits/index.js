@@ -27,6 +27,7 @@ function Exhibit({position,size,text,image,altText,museumParams,description}) {
           map={imgTexture}
           transparent
           opacity={active ? 0.3 : 1}
+          metalness={0.6}
           // color={hovered ? "#ADD8E6" : "white"}
           side={DoubleSide}/>
       </mesh>
@@ -57,7 +58,8 @@ function Exhibit({position,size,text,image,altText,museumParams,description}) {
         className="description"
         style={{
           display: "flex",
-          flexDirection: "column",
+          flexDirection: "row",
+          width: "70vw",
           color: "white",
           backgroundColor: "rgba(0,0,0,0.7)",
           transition: 'all 0.5s',
@@ -70,8 +72,13 @@ function Exhibit({position,size,text,image,altText,museumParams,description}) {
             alt={altText}
             style={{maxHeight: "50vh", width: "50vw"}}
             />
-          <h2>{text}</h2>
-          <p> {description}</p>
+          <section>
+            <h2 style={{
+              textAlign:"center",
+            }}
+            ><u>{text}</u></h2>
+            <p> {description}</p>
+          </section>
         </Html>
       
     </>
