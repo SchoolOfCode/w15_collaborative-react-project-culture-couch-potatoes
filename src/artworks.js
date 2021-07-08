@@ -7,7 +7,7 @@ import Tabula from "./objects/Tabula.jpg"
 let artworks = [
     {
         id: 1,
-        size: [7.5,5],
+        size: [8,5.5],
         title: "Colossus Computer",
         author:"",
         year: "C. 1945 AD",
@@ -15,7 +15,7 @@ let artworks = [
         description:"Colossus was a set of computers developed by British codebreakers in the years 1943–1945 to help in the cryptanalysis of the Lorenz cipher. Colossus used thermionic valves (vacuum tubes) to perform Boolean and counting operations. Colossus is thus regarded as the world's first programmable, electronic, digital computer, although it was programmed by switches and plugs and not by a stored program. Colossus was designed by General Post Office (GPO) research telephone engineer Tommy Flowers to solve a problem posed by mathematician Max Newman at the Government Code and Cypher School (GC&CS) at Bletchley Park.",
     },
     {   id: 2,
-        size: [7,7],
+        size: [6,6],
         title:"Nebra Sky Disk",
         author:"",
         year:"1600 BC" ,
@@ -33,7 +33,7 @@ let artworks = [
     },
     {
         id: 4,
-        size: [4,5],
+        size: [6.5,8],
         title:"Alternatives",
         author: "Espen Kluge",
         year:"2019 AD",

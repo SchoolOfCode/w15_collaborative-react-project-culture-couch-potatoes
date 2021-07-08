@@ -78,7 +78,7 @@ function Welcome(){
             Click on exhibits of interest to find out more information. We hope you enjoy the museum!. 
             </p>
         </section>
-        </Html>
+    </Html>
     )
 }
 
