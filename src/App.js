@@ -31,6 +31,7 @@ const setupExhibitItems = () =>{
             altText = {artworks[i].text}
             museumParams={[MUS_WIDTH,MUS_HEIGHT,FLOOR_SIZE]}
             description = {artworks[i].description}
+            link={artworks[i].url}
         />
     );
   }

@@ -1,15 +1,16 @@
 import React, { useRef, useState, useMemo } from "react";
-import { Text, useTexture, Html } from "@react-three/drei";
+import { Text, useTexture, Html, Center } from "@react-three/drei";
 import { DoubleSide, SpotLight} from 'three'
+import exit from "../../exit.png";
 
-
-function Exhibit({position,size,text,image,altText,museumParams,description}) {
+function Exhibit({position,size,text,image,altText,museumParams,description, link}) {
 
   const mesh = useRef();
   const [hovered, setHover] = useState(false);
   const [active, setActive] = useState(false);
   const imgTexture = useTexture(image);
   const spot = useMemo(() => new SpotLight(0xffffff), [])
+  const landscape = size[0] > size[1];
 
   return (
     <>
@@ -55,30 +56,56 @@ function Exhibit({position,size,text,image,altText,museumParams,description}) {
       <Html 
         position = {[position[0]-5, museumParams[1]/3, 0.3]}
         as='div'
-        className="description"
         style={{
-          display: "flex",
-          flexDirection: "row",
-          width: "70vw",
+          display: "grid",
+          gap: "1em",
           color: "white",
+          justifyItems: "center",
+          width: landscape ? "60vw": "40vw",
           backgroundColor: "rgba(0,0,0,0.7)",
           transition: 'all 0.5s',
           transform: `scale(${active ? 1 : 0.5})`,
           opacity: active ? 1 : 0,
-          pointerEvents: "none"
+          pointerEvents:"none",
+          padding: "1em 1em",
         }}>
-          <img 
-            src={image} 
-            alt={altText}
-            style={{maxHeight: "50vh", width: "50vw"}}
+          {/* <a href={link} target="_blank" style={{pointerEvents: "auto"}} > */}
+            <img 
+              src={image} 
+              alt={altText}
+              onClick={(e) => setActive(false)}
+              style={{
+                gridColumn: 1,
+                width: landscape ? "60vw": "25vw",
+                maxHeight: landscape ? "50vh": "45vh",
+                pointerEvents: active?"auto":"none",
+              }}
             />
-          <section>
+          {/* </a>           */}
+          <section style={{
+            gridColumn: 1,
+            }}>
             <h2 style={{
+              fontWeight: 300,
               textAlign:"center",
             }}
-            ><u>{text}</u></h2>
+            >{text}</h2>
             <p> {description}</p>
           </section>
+          {/* <img
+            style={{
+            position: "absolute",
+            right: "1vw",
+            top: "1vh",
+            pointerEvents: active?"auto":"none",
+            width:"2em",
+            filter:"invert(100%)",
+            magin: "1em 1em",
+            }}
+            src={exit}
+            alt="exit button to dismiss the help instructions"
+            onClick={(e) => setActive(false)}
+        /> */}
         </Html>
       
     </>
