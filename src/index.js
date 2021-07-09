@@ -4,11 +4,13 @@ import App from "./App"
 import Help from "./components/help"
 import "./index.css"
 import reportWebVitals from "./reportWebVitals"
+import PlaySound from "./components/sounds"
 
 const root = document.querySelector("#root")
 
 ReactDOM.render(
   <>
+    <PlaySound />
     <Help />
     <App />
   </>,

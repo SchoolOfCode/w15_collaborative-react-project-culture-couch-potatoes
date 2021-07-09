@@ -13,12 +13,12 @@ import Museum from "./components/museum"
 import Exhibit from "./components/exhibits"
 import Floor from "./components/floor"
 import Welcome from "./components/welcome"
-import PlaySound from "./components/sounds"
+import Wright from "./components/wright"
+
 //Text data imports for exhibits
 import artworks from "./artworks"
 //CSS reset imports
 import "./App.css"
-import Wright from "./components/wright"
 //Const global variables
 const MUS_WIDTH = 60
 const MUS_HEIGHT = 12
@@ -70,7 +70,7 @@ function App() {
 
   return (
     <>
-      <PlaySound />
+      
       <Canvas
         style={{ height: "100vh", width: "100vw" }}
         dpr={Math.max(window.devicePixelRatio, 2)}
