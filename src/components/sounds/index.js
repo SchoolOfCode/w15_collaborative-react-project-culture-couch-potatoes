@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react"
 import ambienceAudio from "../../convention_hall_ambience_noise.ogg"
 import playIcon from "../../play.png"
 import pauseIcon from "../../pause.png"
+import muteIcon from "../../mute.png"
 
 function PlaySound(props){
 
