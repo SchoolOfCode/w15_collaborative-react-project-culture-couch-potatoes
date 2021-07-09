@@ -3,6 +3,7 @@ import { Text, useTexture, Html } from "@react-three/drei"
 import { DoubleSide, SpotLight } from "three"
 import useSound from "use-sound"
 import whooshSound from "../sounds/spin.mp3"
+import clickSound from "../sounds/click-sound.mp3"
 
 function Exhibit({
   position,
@@ -20,16 +21,22 @@ function Exhibit({
   const imgTexture = useTexture(image)
   const spot = useMemo(() => new SpotLight(0xffffff), [])
   const landscape = size[0] > size[1]
-  const [play] = useSound(whooshSound)
+  const [whoosh] = useSound(whooshSound)
+  const [blip] = useSound(clickSound)
 
   function onClickEvent() {
     setActive(!active)
-    play()
+    whoosh()
   }
 
-  function removeHover() {
+  function removeOverlay() {
     setActive(false)
-    play()
+    whoosh()
+  }
+
+  function onHover() {
+    setHover(true)
+    blip()
   }
 
   return (
@@ -40,7 +47,7 @@ function Exhibit({
         ref={mesh}
         scale={hovered ? 1.1 : 1}
         onClick={onClickEvent}
-        onPointerOver={(e) => setHover(true)}
+        onPointerOver={onHover}
         onPointerOut={(e) => setHover(false)}
       >
         <planeBufferGeometry attach="geometry" args={size} />
@@ -97,7 +104,7 @@ function Exhibit({
         <img
           src={image}
           alt={altText}
-          onClick={removeHover}
+          onClick={removeOverlay}
           style={{
             gridColumn: 1,
             width: landscape ? "60vw" : "25vw",
