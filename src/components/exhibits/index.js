@@ -2,7 +2,7 @@ import React, { useRef, useState, useMemo } from "react"
 import { Text, useTexture, Html } from "@react-three/drei"
 import { DoubleSide, SpotLight } from "three"
 import useSound from "use-sound"
-import whooshSound from "../sounds/spin.mp3"
+import pencilSound from "../sounds/pencil-on-paper.mp3"
 import clickSound from "../sounds/click-sound.mp3"
 
 function Exhibit({
@@ -21,7 +21,7 @@ function Exhibit({
   const imgTexture = useTexture(image)
   const spot = useMemo(() => new SpotLight(0xffffff), [])
   const landscape = size[0] > size[1]
-  const [whoosh] = useSound(whooshSound)
+  const [whoosh] = useSound(pencilSound)
   const [blip] = useSound(clickSound)
 
   function onClickEvent() {
@@ -31,7 +31,7 @@ function Exhibit({
 
   function removeOverlay() {
     setActive(false)
-    whoosh()
+    // whoosh()
   }
 
   function onHover() {
