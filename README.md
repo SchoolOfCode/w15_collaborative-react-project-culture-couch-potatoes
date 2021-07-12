@@ -6,6 +6,12 @@ This is an interactive virtual tour that captures some fascinating moments in th
 ## Current Site:
 <img src="./public/2021-07-09 22-46.gif" alt="current site as of 09/07">
 
+## The Making Of Documentary:
+
+https://user-images.githubusercontent.com/8883337/125361765-b272c480-e365-11eb-8b35-550255cc5ceb.mp4
+
+A very brief overview of the details, processes and implementation of the project, made by it's developers.
+
 ## How to Start:
 Once downloaded, in the project directory, you can run:
 
