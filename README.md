@@ -1,25 +1,37 @@
-# The Virtual Museum
+# The Virtual Museum by Culture Couch Potatoes
 
-Welcome to this react learning showcase, the online virtual museum.  
-This is an interactive virtual tour that captures some fascinating moments in the history and future of science and allows you to explore them in the comfort and safety of your browser.
+This application provides an interactive, virtual tour of selected museum exhibits.
+The user is able to navigate around a virtual museum hall, select an exhibit and click to see key information about it.
+The museum hall and exhibits are displayed in 3D to re-create the experience of visiting a museum, but from the comfort and safety of your browser.
 
-## Current Site:
-<img src="./public/2021-07-09 22-46.gif" alt="current site as of 09/07">
+## Authors
 
-## The Making Of Documentary:
+- [@gurmuhk](https://www.github.com/gschandan)
+- [@umar](https://www.github.com/umarbegg)
+- [@sara](https://www.github.com/sara-mo93)
+- [@merlin](https://www.github.com/merlinjones10)
 
-https://user-images.githubusercontent.com/8883337/125361765-b272c480-e365-11eb-8b35-550255cc5ceb.mp4
+  
+## Installation
 
-A very brief overview of the details, processes and implementation of the project, made by it's developers.
+Download into your local folder (eg virtual-museum).
 
-## How to Start:
-Once downloaded, in the project directory, you can run:
+Install and run using npm
 
-### `npm install`
-### `npm start`
+```bash
+  npm install
+  cd virtual-museum
+  npm start  
+```
+Then open http://localhost:3000 to view it locally in your browser.
 
-Then open [http://localhost:3000](http://localhost:3000) to view it locally in your browser.
+## Documentation
 
-## Libraries:
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Click here to see further documentation]("./Documentation.md")
+
+  
+## License
+
+This project was bootstrapped with Create React App. 
+
 WebGL 3d scenes were created and rendered with three.js, react-three-fiber and react-three-drei.
