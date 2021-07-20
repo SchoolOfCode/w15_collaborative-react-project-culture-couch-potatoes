@@ -2,11 +2,11 @@ import React, { useReducer } from "react"
 import { Html } from "@react-three/drei"
 import logo from "../../logo_2.png"
 import exit from "../../exit.png"
-import useSound from "use-sound"
-import boop from "../sounds/boop.mp3"
+// import useSound from "use-sound"
+// import boop from "../sounds/boop.mp3"
 
 export const SET_HOVERED = "hover";
-const SET_NOT_HOVERED = "not hovered";
+export const SET_NOT_HOVERED = "not hovered";
 export const SET_VISIBLE = "visible";
 
 const initialState = {
@@ -37,19 +37,9 @@ export function reducer(state, action) {
     }
   }
 
-
-// const [visible, setVisible] = useState(true)
-// const [hovered, setHovered] = useState(false)
-
-
-// function onClickEvent() {
-//   setVisible(!visible)
-//   play()
-// }
-
 function Welcome() {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const [play] = useSound(boop)
+  // const [play] = useSound(boop)
 
   return (
     <Html // modal box?
