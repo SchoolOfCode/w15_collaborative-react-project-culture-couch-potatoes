@@ -104,8 +104,8 @@ function Welcome() {
           alt="exit button to dismiss the help"
           // onClick={onClickEvent}
           onClick={() => dispatch({ type: SET_VISIBLE })}
-          onMouseEnter={(e) => dispatch({ type: SET_HOVERED })}
-          onMouseLeave={(e) => dispatch({ type: SET_NOT_HOVERED })}
+          onMouseEnter={() => dispatch({ type: SET_HOVERED })}
+          onMouseLeave={() => dispatch({ type: SET_NOT_HOVERED })}
         />
       </section>
 
