@@ -101,6 +101,7 @@ function Welcome() {
           of History and Science!
         </h2>
         <img
+          data-testid = "exit-button"
           style={{
             position: "absolute",
             top: "2vh",
