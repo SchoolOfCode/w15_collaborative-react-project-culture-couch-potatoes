@@ -1,60 +1,19 @@
-import React, { useReducer } from "react";
-import { Html } from "@react-three/drei";
-import logo from "../../logo_2.png";
-import exit from "../../exit.png";
-import useSound from "use-sound";
-import boop from "../sounds/boop.mp3";
-
-const SET_HOVERED = "hover";
-const SET_NOT_HOVERED = "not hovered";
-const SET_VISIBLE = "visible";
-
-const initialState = {
-  visible: true,
-  hovered: false,
-};
-
-function reducer(state, action) {
-  // console.log ("I am the reducer.  Mess with me at your peril");
-  switch (action.type) {
-    case SET_HOVERED:
-      // if (state.hovered === true) {
-        console.log("hovered state should be false ", state.hovered)
-        return { ...state, hovered: true };
-      // } 
-      // else {
-      //   return { hovered: false };
-      // }
-    // return state.hovered === true ? state.hovered=false : state.hovered=true;
-case SET_NOT_HOVERED:
-  console.log("hovered state should be true ", state.hovered)
-  return { ...state, hovered:false };
-
-    case SET_VISIBLE:
-      console.log ("now you see me")
-      // if (state.visible === true) {
-      return {...state, visible: false };
-    // }
-    // else {
-      // return {visible:true}
-    // }
-    default:
-      return state;
-  }
-}
+import React, { useState } from "react"
+import { Html } from "@react-three/drei"
+import logo from "../../logo_2.png"
+import exit from "../../exit.png"
+import useSound from "use-sound"
+import boop from "../sounds/boop.mp3"
 
 function Welcome() {
-  const [state, dispatch] = useReducer(reducer, initialState);
-  // const [visible, setVisible] = useState(true)
-  // const [hovered, setHovered] = useState(false)
+  const [visible, setVisible] = useState(true)
+  const [hovered, setHovered] = useState(false)
+  const [play] = useSound(boop)
 
-  const [play] = useSound(boop);
-
-  // function onClickEvent() {
-  //   dispatch({ type: SET_VISIBLE });
-  //   // setVisible(!initialState.visible)
-  //   play();
-  // }
+  function onClickEvent() {
+    setVisible(!visible)
+    play()
+  }
 
   return (
     <Html
@@ -67,7 +26,7 @@ function Welcome() {
         fontWeight: "bold",
         width: "100vw",
         height: "100vh",
-        opacity: state.visible ? 1 : 0,
+        opacity: visible ? 1 : 0,
         pointerEvents: "none",
       }}
     >
@@ -108,21 +67,17 @@ function Welcome() {
             pointerEvents: "auto",
             alignSelf: "center",
             width: "calc(3em + 0.1vw)",
-            filter: state.hovered
+            filter: hovered
               ? "invert(100%) drop-shadow(2px 2px 5px gold)"
               : "invert(100%)",
             transition: "all 0.5s ease",
-            transform: `rotate3d(${
-              state.hovered ? "0,0,1,270deg" : "0,0,0,0deg"
-            })`,
+            transform: `rotate3d(${hovered ? "0,0,1,270deg" : "0,0,0,0deg"})`,
           }}
           src={exit}
           alt="exit button to dismiss the help"
-          // onClick={onClickEvent}
-          onClick={()=> {dispatch({type: SET_VISIBLE}); play()}}
-          onMouseEnter={(e) => dispatch({ type: SET_HOVERED })}
-          onMouseLeave={(e) => dispatch({ type: SET_NOT_HOVERED })}
-          // onMouseLeave={(e) => setHovered(false)}
+          onClick={onClickEvent}
+          onMouseEnter={(e) => setHovered(true)}
+          onMouseLeave={(e) => setHovered(false)}
         />
       </section>
 
@@ -145,7 +100,7 @@ function Welcome() {
         </p>
       </section>
     </Html>
-  );
+  )
 }
 
-export default Welcome;
+export default Welcome

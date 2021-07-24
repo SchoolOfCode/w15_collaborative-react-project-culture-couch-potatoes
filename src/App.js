@@ -12,7 +12,7 @@ import {
 import Museum from "./components/museum"
 import Exhibit from "./components/exhibits"
 import Floor from "./components/floor"
-import Welcome from "./components/welcome"
+import Welcome from "./components/welcome/index"
 import Wright from "./components/wright"
 
 //Text data imports for exhibits

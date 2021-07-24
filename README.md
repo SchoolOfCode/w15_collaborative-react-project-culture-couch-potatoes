@@ -25,9 +25,9 @@ Install and run using npm
 ```
 Then open http://localhost:3000 to view it locally in your browser.
 
-## Documentation
+## Structure
 
-[Click here to see further documentation]("./Documentation.md")
+
 
   
 ## License
