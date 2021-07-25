@@ -30,7 +30,7 @@ npm start
 ```
 4. If it doesn't open automatically, you can navigate to [http://localhost:3000](http://localhost:3000) to view the application in the browser
 
-You should be able to see this:
+5. You should be able to see this:
 
 <img src="./public/2021-07-09 22-46.gif" alt="current site as of 09/07/21">
 
@@ -48,5 +48,3 @@ You should be able to see this:
 - [@sara-mo93](https://github.com/Sara-Mo93)
 - [@umarbegg](https://github.com/UmarBegg)
 
-The developers have created a video with a brief overview of the details, processes and implementation of the project:
-https://user-images.githubusercontent.com/8883337/125361765-b272c480-e365-11eb-8b35-550255cc5ceb.mp4
