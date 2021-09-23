@@ -1,45 +1,41 @@
-import React, { useReducer } from "react";
-import { Html } from "@react-three/drei";
-import logo from "../../logo_2.png";
-import exit from "../../exit.png";
-import useSound from "use-sound";
-import boop from "../sounds/boop.mp3";
+import React, { useReducer } from "react"
+import { Html } from "@react-three/drei"
+import logo from "../../logo_2.png"
+import exit from "../../exit.png"
+// import useSound from "use-sound"
+// import boop from "../sounds/boop.mp3"
 
-const SET_HOVERED = "hover";
-const SET_NOT_HOVERED = "not hovered";
-const SET_VISIBLE = "visible";
+export const SET_HOVERED = "hover";
+export const SET_NOT_HOVERED = "not hovered";
+export const SET_VISIBLE = "visible";
 
 const initialState = {
   visible: true,
   hovered: false,
 };
 
-function reducer(state, action) {
-  // console.log ("I am the reducer.  Mess with me at your peril");
-  switch (action.type) {
-    case SET_HOVERED:
-      // if (state.hovered === true) {
-        console.log("hovered state should be false ", state.hovered)
-        return { ...state, hovered: true };
-      // } 
-      // else {
-      //   return { hovered: false };
-      // }
-    // return state.hovered === true ? state.hovered=false : state.hovered=true;
-case SET_NOT_HOVERED:
-  console.log("hovered state should be true ", state.hovered)
-  return { ...state, hovered:false };
 
+export function reducer(state, action) {
+  console.log(state, action);
+  switch (action.type) {
     case SET_VISIBLE:
-      console.log ("now you see me")
-      // if (state.visible === true) {
-      return {...state, visible: false };
-    // }
-    // else {
-      // return {visible:true}
-    // }
+      return {
+        ...state,
+        visible: false,
+      }
+    case SET_HOVERED:
+      return {
+        ...state,
+        hovered: true,
+      }
+    case SET_NOT_HOVERED:
+      return {
+        ...state,
+        hovered: false,
+      }
     default:
       return state;
+    }
   }
 }
 
@@ -56,8 +52,12 @@ function Welcome() {
   //   play();
   // }
 
+function Welcome() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  // const [play] = useSound(boop)
+
   return (
-    <Html
+    <Html // modal box?
       center
       as="div"
       className="welcome"
@@ -100,9 +100,10 @@ function Welcome() {
           Welcome to the Virtual Museum <br />
           of History and Science!
         </h2>
-        <img
-          data-testid = "exit-button"
+        <img // close button
+
           style={{
+            cursor: "pointer", // added for my peace of mind
             position: "absolute",
             top: "2vh",
             right: "2vw",
@@ -111,19 +112,19 @@ function Welcome() {
             width: "calc(3em + 0.1vw)",
             filter: state.hovered
               ? "invert(100%) drop-shadow(2px 2px 5px gold)"
-              : "invert(100%)",
-            transition: "all 0.5s ease",
-            transform: `rotate3d(${
-              state.hovered ? "0,0,1,270deg" : "0,0,0,0deg"
-            })`,
+
+              : "invert(100%)", // gold outline on hover ternary 
+            transition: "all 0.5s ease", // rotate animation
+            transform: `rotate3d(${state.hovered ? "0,0,1,270deg" : "0,0,0,0deg"})`, // rotate animation
+
           }}
           src={exit}
           alt="exit button to dismiss the help"
           // onClick={onClickEvent}
-          onClick={()=> {dispatch({type: SET_VISIBLE}); play()}}
-          onMouseEnter={(e) => dispatch({ type: SET_HOVERED })}
-          onMouseLeave={(e) => dispatch({ type: SET_NOT_HOVERED })}
-          // onMouseLeave={(e) => setHovered(false)}
+
+          onClick={() => dispatch({ type: SET_VISIBLE })}
+          onMouseEnter={() => dispatch({ type: SET_HOVERED })}
+          onMouseLeave={() => dispatch({ type: SET_NOT_HOVERED })}
         />
       </section>
 

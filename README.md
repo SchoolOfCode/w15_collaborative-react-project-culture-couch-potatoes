@@ -1,29 +1,41 @@
-# The Virtual Museum by Culture Couch Potatoes
+# The Virtual Museum
 
-This application provides an interactive, virtual tour of selected museum exhibits.
+![logo](./src/logo_2.png)
+
+The Virtual Museum is an interactive experience that captures some fascinating moments in the history and future of science which you can easily explore from the comfort and safety of your browser.
 The user is able to navigate around a virtual museum hall, select an exhibit and click to see key information about it.
 The museum hall and exhibits are displayed in 3D to re-create the experience of visiting a museum, but from the comfort and safety of your browser.
 
-## Authors
+## Features
 
-- [@gurmuhk](https://www.github.com/gschandan)
-- [@umar](https://www.github.com/umarbegg)
-- [@sara](https://www.github.com/sara-mo93)
-- [@merlin](https://www.github.com/merlinjones10)
+- The museum is 3D virtual space that the user can navigate around
+- The static exhibits in the museum can be enalarged by hovering
+- The 3D exhibit can be viewed from all angles
+- Information about each exhibit will be displayed on click
+- There is an optional immersive soundtrack for the experience
+- Help is available for users at the click of a button
 
-  
 ## Installation
 
-Download into your local folder (eg virtual-museum).
-
-Install and run using npm
-
-```bash
-  npm install
-  cd virtual-museum
-  npm start  
+1. Clone this repository 
 ```
-Then open http://localhost:3000 to view it locally in your browser.
+git clone https://github.com/SchoolOfCode/w15_collaborative-react-project-culture-couch-potatoes.git
+```
+2. Ensure you have changed your directory in the terminal and install the node modules
+```
+cd w15_collaborative-react-project-culture-couch-potatoes
+npm install
+```
+3. Once you have everything set up you can run the application
+```
+npm start
+```
+4. If it doesn't open automatically, you can navigate to [http://localhost:3000](http://localhost:3000) to view the application in the browser
+
+5. You should be able to see this:
+
+<img src="./public/2021-07-09 22-46.gif" alt="current site as of 09/07/21">
+
 
 ## User experience
 
@@ -52,8 +64,17 @@ The components of the app are as follows:
 The main app.js uses a Canvas component to render the threejs elements and this element is rendered with all other components rendered within, with the exception of the Loader.
 
   
-## License
 
-This project was bootstrapped with Create React App. 
+## Dependencies   
 
-WebGL 3d scenes were created and rendered with three.js, react-three-fiber and react-three-drei.
+- React
+- Three.js
+- React-three-fiber
+- React-three-drei
+
+## Authors
+
+- [@gschandan](https://github.com/gschandan)
+- [@merlinjones10](https://github.com/merlinjones10)
+- [@sara-mo93](https://github.com/Sara-Mo93)
+- [@umarbegg](https://github.com/UmarBegg)
