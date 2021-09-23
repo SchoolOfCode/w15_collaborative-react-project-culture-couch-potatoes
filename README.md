@@ -63,7 +63,11 @@ The components of the app are as follows:
 
 The main app.js uses a Canvas component to render the threejs elements and this element is rendered with all other components rendered within, with the exception of the Loader.
 
-  
+ ## The Making Of Documentary:
+
+https://user-images.githubusercontent.com/8883337/125361765-b272c480-e365-11eb-8b35-550255cc5ceb.mp4
+
+A very brief overview of the details, processes and implementation of the project, made by it's developers.
 
 ## Dependencies   
 
