@@ -14,6 +14,7 @@ const initialState = {
   hovered: false,
 };
 
+
 export function reducer(state, action) {
   console.log(state, action);
   switch (action.type) {
@@ -36,6 +37,20 @@ export function reducer(state, action) {
       return state;
     }
   }
+}
+
+function Welcome() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  // const [visible, setVisible] = useState(true)
+  // const [hovered, setHovered] = useState(false)
+
+  const [play] = useSound(boop);
+
+  // function onClickEvent() {
+  //   dispatch({ type: SET_VISIBLE });
+  //   // setVisible(!initialState.visible)
+  //   play();
+  // }
 
 function Welcome() {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -86,6 +101,7 @@ function Welcome() {
           of History and Science!
         </h2>
         <img // close button
+
           style={{
             cursor: "pointer", // added for my peace of mind
             position: "absolute",
@@ -96,13 +112,16 @@ function Welcome() {
             width: "calc(3em + 0.1vw)",
             filter: state.hovered
               ? "invert(100%) drop-shadow(2px 2px 5px gold)"
+
               : "invert(100%)", // gold outline on hover ternary 
             transition: "all 0.5s ease", // rotate animation
             transform: `rotate3d(${state.hovered ? "0,0,1,270deg" : "0,0,0,0deg"})`, // rotate animation
+
           }}
           src={exit}
           alt="exit button to dismiss the help"
           // onClick={onClickEvent}
+
           onClick={() => dispatch({ type: SET_VISIBLE })}
           onMouseEnter={() => dispatch({ type: SET_HOVERED })}
           onMouseLeave={() => dispatch({ type: SET_NOT_HOVERED })}
@@ -128,7 +147,7 @@ function Welcome() {
         </p>
       </section>
     </Html>
-  )
+  );
 }
 
-export default Welcome
+export default Welcome;
