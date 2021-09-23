@@ -1,22 +1,48 @@
-import React, { useState } from "react"
+import React, { useReducer } from "react"
 import { Html } from "@react-three/drei"
 import logo from "../../logo_2.png"
 import exit from "../../exit.png"
-import useSound from "use-sound"
-import boop from "../sounds/boop.mp3"
+// import useSound from "use-sound"
+// import boop from "../sounds/boop.mp3"
 
-function Welcome() {
-  const [visible, setVisible] = useState(true)
-  const [hovered, setHovered] = useState(false)
-  const [play] = useSound(boop)
+export const SET_HOVERED = "hover";
+export const SET_NOT_HOVERED = "not hovered";
+export const SET_VISIBLE = "visible";
 
-  function onClickEvent() {
-    setVisible(!visible)
-    play()
+const initialState = {
+  visible: true,
+  hovered: false,
+};
+
+export function reducer(state, action) {
+  console.log(state, action);
+  switch (action.type) {
+    case SET_VISIBLE:
+      return {
+        ...state,
+        visible: false,
+      }
+    case SET_HOVERED:
+      return {
+        ...state,
+        hovered: true,
+      }
+    case SET_NOT_HOVERED:
+      return {
+        ...state,
+        hovered: false,
+      }
+    default:
+      return state;
+    }
   }
 
+function Welcome() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  // const [play] = useSound(boop)
+
   return (
-    <Html
+    <Html // modal box?
       center
       as="div"
       className="welcome"
@@ -26,7 +52,7 @@ function Welcome() {
         fontWeight: "bold",
         width: "100vw",
         height: "100vh",
-        opacity: visible ? 1 : 0,
+        opacity: state.visible ? 1 : 0,
         pointerEvents: "none",
       }}
     >
@@ -59,25 +85,27 @@ function Welcome() {
           Welcome to the Virtual Museum <br />
           of History and Science!
         </h2>
-        <img
+        <img // close button
           style={{
+            cursor: "pointer", // added for my peace of mind
             position: "absolute",
             top: "2vh",
             right: "2vw",
             pointerEvents: "auto",
             alignSelf: "center",
             width: "calc(3em + 0.1vw)",
-            filter: hovered
+            filter: state.hovered
               ? "invert(100%) drop-shadow(2px 2px 5px gold)"
-              : "invert(100%)",
-            transition: "all 0.5s ease",
-            transform: `rotate3d(${hovered ? "0,0,1,270deg" : "0,0,0,0deg"})`,
+              : "invert(100%)", // gold outline on hover ternary 
+            transition: "all 0.5s ease", // rotate animation
+            transform: `rotate3d(${state.hovered ? "0,0,1,270deg" : "0,0,0,0deg"})`, // rotate animation
           }}
           src={exit}
           alt="exit button to dismiss the help"
-          onClick={onClickEvent}
-          onMouseEnter={(e) => setHovered(true)}
-          onMouseLeave={(e) => setHovered(false)}
+          // onClick={onClickEvent}
+          onClick={() => dispatch({ type: SET_VISIBLE })}
+          onMouseEnter={() => dispatch({ type: SET_HOVERED })}
+          onMouseLeave={() => dispatch({ type: SET_NOT_HOVERED })}
         />
       </section>
 

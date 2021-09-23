@@ -1,25 +1,50 @@
 # The Virtual Museum
 
-Welcome to this react learning showcase, the online virtual museum.  
-This is an interactive virtual tour that captures some fascinating moments in the history and future of science and allows you to explore them in the comfort and safety of your browser.
+![logo](./src/logo_2.png)
 
-## Current Site:
-<img src="./public/2021-07-09 22-46.gif" alt="current site as of 09/07">
+The Virtual Museum is an interactive experience that captures some fascinating moments in the history and future of science which you can easily explore from the comfort and safety of your browser.
 
-## The Making Of Documentary:
+## Features
 
-https://user-images.githubusercontent.com/8883337/125361765-b272c480-e365-11eb-8b35-550255cc5ceb.mp4
+- The museum is 3D virtual space that the user can navigate around
+- The static exhibits in the museum can be enalarged by hovering
+- The 3D exhibit can be viewed from all angles
+- Information about each exhibit will be displayed on click
+- There is an optional immersive soundtrack for the experience
+- Help is available for users at the click of a button
 
-A very brief overview of the details, processes and implementation of the project, made by it's developers.
+## Installation
 
-## How to Start:
-Once downloaded, in the project directory, you can run:
+1. Clone this repository 
+```
+git clone https://github.com/SchoolOfCode/w15_collaborative-react-project-culture-couch-potatoes.git
+```
+2. Ensure you have changed your directory in the terminal and install the node modules
+```
+cd w15_collaborative-react-project-culture-couch-potatoes
+npm install
+```
+3. Once you have everything set up you can run the application
+```
+npm start
+```
+4. If it doesn't open automatically, you can navigate to [http://localhost:3000](http://localhost:3000) to view the application in the browser
 
-### `npm install`
-### `npm start`
+5. You should be able to see this:
 
-Then open [http://localhost:3000](http://localhost:3000) to view it locally in your browser.
+<img src="./public/2021-07-09 22-46.gif" alt="current site as of 09/07/21">
 
-## Libraries:
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-WebGL 3d scenes were created and rendered with three.js, react-three-fiber and react-three-drei.
+## Dependencies   
+
+- React
+- Three.js
+- React-three-fiber
+- React-three-drei
+
+## Authors
+
+- [@gschandan](https://github.com/gschandan)
+- [@merlinjones10](https://github.com/merlinjones10)
+- [@sara-mo93](https://github.com/Sara-Mo93)
+- [@umarbegg](https://github.com/UmarBegg)
+
