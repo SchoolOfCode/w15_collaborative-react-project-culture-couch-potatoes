@@ -37,14 +37,14 @@ export function reducer(state, action) {
       return state;
     }
   }
-}
 
-function Welcome() {
-  const [state, dispatch] = useReducer(reducer, initialState);
+
+// function Welcome() {
+//   const [state, dispatch] = useReducer(reducer, initialState);
   // const [visible, setVisible] = useState(true)
   // const [hovered, setHovered] = useState(false)
 
-  const [play] = useSound(boop);
+  // const [play] = useSound(boop);
 
   // function onClickEvent() {
   //   dispatch({ type: SET_VISIBLE });
